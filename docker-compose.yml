@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  botique-hotel-db:
+    image: 'mariadb:11.3.2-jammy'
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_USER=botiquehotel
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=boutique_hotel_technikum
+    volumes:
+      - botique-hotel-db-vol:/var/lib/mysql
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
+volumes:
+  botique-hotel-db-vol:

@@ -1,0 +1,7 @@
+{
+  "name": "boutiqueHotelTechnikumAdFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
