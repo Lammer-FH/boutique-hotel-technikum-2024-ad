@@ -12,6 +12,7 @@ services:
       - MARIADB_DATABASE=boutique_hotel_technikum
     volumes:
       - botique-hotel-db-vol:/var/lib/mysql
+      - ./mariadb-setup-scripts/:/docker-entrypoint-initdb.d/
   adminer:
     image: adminer
     ports:
