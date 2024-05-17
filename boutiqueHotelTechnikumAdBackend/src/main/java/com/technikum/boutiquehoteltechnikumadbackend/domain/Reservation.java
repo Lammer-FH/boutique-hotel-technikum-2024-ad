@@ -1,4 +1,4 @@
-package com.technikum.boutiquehoteltechnikumadbackend.core.domain;
+package com.technikum.boutiquehoteltechnikumadbackend.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,21 +14,21 @@ public class Reservation {
     @Column(name = "idReservation")
     private Integer id;
 
-    @Column(name = "from")
-    LocalDateTime from;
+    @Column(name = "`from`")
+    private LocalDateTime from;
 
-    @Column(name = "to")
-    LocalDateTime to;
+    @Column(name = "`to`")
+    private LocalDateTime to;
 
     @Column(name = "doBreakfast",  columnDefinition = "TINYINT(1)")
-    Boolean doBreakfast;
+    private Boolean doBreakfast;
 
     @ManyToOne
     @JoinColumn(name = "guest_idGuest")
-    Guest guest;
+    private Guest guest;
 
     @ManyToOne
     @JoinColumn(name = "room_idRoom")
-    Room room;
+    private Room room;
 
 }

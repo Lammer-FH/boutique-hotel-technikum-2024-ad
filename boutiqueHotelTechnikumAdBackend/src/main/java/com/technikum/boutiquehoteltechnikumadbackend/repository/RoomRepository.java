@@ -1,6 +1,6 @@
-package com.technikum.boutiquehoteltechnikumadbackend.core.persistence;
+package com.technikum.boutiquehoteltechnikumadbackend.repository;
 
-import com.technikum.boutiquehoteltechnikumadbackend.core.domain.Room;
+import com.technikum.boutiquehoteltechnikumadbackend.domain.Room;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.technikum.boutiquehoteltechnikumadbackend.core.domain;
+package com.technikum.boutiquehoteltechnikumadbackend.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,8 +15,8 @@ public class Extra {
     private Integer id;
 
     @Column(name = "name")
-    String name;
+    private String name;
 
     @ManyToMany(mappedBy = "extras")
-    List<Room> rooms;
+    private List<Room> rooms;
 }

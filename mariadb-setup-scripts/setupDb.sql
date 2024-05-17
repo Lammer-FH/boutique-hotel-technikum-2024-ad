@@ -18,7 +18,7 @@ USE `boutique_hotel_technikum` ;
 -- Table `boutique_hotel_technikum`.`Room`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `boutique_hotel_technikum`.`Room` (
-  `idRoom` INT NOT NULL,
+  `idRoom` INT NOT NULL AUTO_INCREMENT,
   `imagePath` VARCHAR(1000) NULL,
   `title` VARCHAR(1000) NULL,
   `description` VARCHAR(10000) NULL,
@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `boutique_hotel_technikum`.`Guest`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `boutique_hotel_technikum`.`Guest` (
-  `idGuest` INT NOT NULL,
+  `idGuest` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(100) NULL,
   `lastname` VARCHAR(100) NULL,
   `email` VARCHAR(100) NULL,
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 -- Table `boutique_hotel_technikum`.`Reservation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `boutique_hotel_technikum`.`Reservation` (
-  `idReservation` INT NOT NULL,
+  `idReservation` INT NOT NULL AUTO_INCREMENT,
   `guest_idGuest` INT NOT NULL,
   `room_idRoom` INT NOT NULL,
   `from` DATETIME NULL,
@@ -69,7 +69,7 @@ ENGINE = InnoDB;
 -- Table `boutique_hotel_technikum`.`Extra`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `boutique_hotel_technikum`.`Extra` (
-  `idExtra` INT NOT NULL,
+  `idExtra` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NULL,
   PRIMARY KEY (`idExtra`))
 ENGINE = InnoDB;

@@ -1,4 +1,4 @@
-package com.technikum.boutiquehoteltechnikumadbackend.core.domain;
+package com.technikum.boutiquehoteltechnikumadbackend.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,23 +16,23 @@ public class Room {
     private Integer id;
 
     @Column(name = "title")
-    String title;
+    private String title;
 
     @Column(name = "description")
-    String description;
+    private String description;
 
     @Column(name = "imagePath")
-    String imagePath;
+    private String imagePath;
 
     @Column(name = "price")
-    BigDecimal price;
+    private BigDecimal price;
 
     @OneToMany(mappedBy = "room")
-    List<Reservation> reservations;
+    private List<Reservation> reservations;
 
     @ManyToMany
     @JoinTable(name = "Room_has_Extra",
             joinColumns = @JoinColumn(name = "extra_IdExtra"),
             inverseJoinColumns = @JoinColumn(name = "room_IdRoom"))
-    List<Extra> extras;
+    private List<Extra> extras;
 }

@@ -1,4 +1,4 @@
-package com.technikum.boutiquehoteltechnikumadbackend.core.domain;
+package com.technikum.boutiquehoteltechnikumadbackend.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,14 +15,14 @@ public class Guest {
     private Integer id;
 
     @Column(name = "firstname")
-    String firstName;
+    private String firstName;
 
     @Column(name = "lastname")
-    String lastName;
+    private String lastName;
 
     @Column(name = "email")
-    String eMail;
+    private String eMail;
 
     @OneToMany(mappedBy = "guest")
-    List<Reservation> reservations;
+    private List<Reservation> reservations;
 }
