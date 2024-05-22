@@ -2,13 +2,18 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
+
   {
     path: '',
-    redirect: '/folder/Inbox'
+    component: () => import ('../views/LandingPage.vue')
   },
   {
-    path: '/folder/:id',
-    component: () => import ('../views/FolderPage.vue')
+    path: '/about',
+    component: () => import ('../views/AboutPage.vue')
+  },
+  {
+    path: '/impressum',
+    component: () => import ('../views/ImpressumPage.vue'),
   }
 ]
 

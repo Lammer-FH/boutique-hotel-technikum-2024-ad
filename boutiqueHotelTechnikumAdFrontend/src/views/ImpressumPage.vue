@@ -5,20 +5,25 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>Impressum</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" class="ion-padding">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
       </ion-header>
-
+      <h1>Impressum der Boutique Hotel Technikum</h1>
       <div id="container">
-        <strong class="capitalize">{{ $route.params.id }}</strong>
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <p>Für den Inhalt auf dieser Website verantwortlich</p>
+        <h2>Hotel Schani GmbH</h2>
+        <p>
+          Hotel Boutique Hotel Technikum GmbH<br/>
+          Example-Straße 42<br/>
+          1100 Wien, Austria<br/>
+        </p>
       </div>
     </ion-content>
   </ion-page>
