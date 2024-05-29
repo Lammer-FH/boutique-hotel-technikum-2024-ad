@@ -84,11 +84,9 @@ const appPages = [
 ];
 const labels = ["Family", "Friends", "Notes", "Work", "Travel", "Reminders"];
 
-const path = window.location.pathname.split("folder/")[1];
+const path = window.location.pathname;
 if (path !== undefined) {
-  selectedIndex.value = appPages.findIndex(
-    (page) => page.title.toLowerCase() === path.toLowerCase()
-  );
+  selectedIndex.value = appPages.findIndex((page) => page.url === path);
 }
 </script>
 
