@@ -81,8 +81,13 @@ const appPages = [
 		iosIcon: heartOutline,
 		mdIcon: heartSharp,
 	},
+  {
+    title: 'Rooms',
+    url: '/rooms',
+    iosIcon: heartOutline,
+    mdIcon: heartSharp,
+  },
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const path = window.location.pathname;
 if (path !== undefined) {
