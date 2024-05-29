@@ -14,107 +14,69 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true" class="ion-padding">
-      <h1>Willkommen zu Boutique Hotel Technikum</h1>
-      <div>
-        <p>
-          Liebe Gäste, wir freuen uns sehr, Sie im Boutique Hotel Technikum
-          begrüßen zu dürfen! Unser Hotel liegt im Herzen von [Stadt/Region],
-          umgeben von malerischen Landschaften und nur einen Katzensprung
-          entfernt von den wichtigsten Sehenswürdigkeiten und Attraktionen.
-          Unser Team hat es sich zur Aufgabe gemacht, Ihnen einen
-          unvergesslichen Aufenthalt zu bereiten. Genießen Sie den Komfort
-          unserer stilvoll eingerichteten Zimmer, die exquisite Küche in unserem
-          hauseigenen Restaurant und die Vielzahl an Freizeitmöglichkeiten, die
-          Ihnen zur Verfügung stehen. Egal ob Sie geschäftlich oder privat
-          unterwegs sind, wir bieten Ihnen erstklassigen Service und zahlreiche
-          Annehmlichkeiten, um Ihren Aufenthalt so angenehm wie möglich zu
-          gestalten. Unser Wellnessbereich lädt zum Entspannen ein, während
-          unser Fitnesscenter dafür sorgt, dass Sie auch unterwegs fit bleiben.
-          Erleben Sie die Gastfreundschaft und den Charme des Boutique Hotel
-          Technikum. Wir stehen Ihnen jederzeit zur Verfügung, um Ihre Wünsche
-          zu erfüllen und Ihren Aufenthalt perfekt zu machen. Herzlich
-          willkommen und genießen Sie Ihren Aufenthalt!
-        </p>
-        <!--
-          Long nice quote
-
-          Photo Gallery
-
-          Toole Pluspunkte für unser Hotel
-        -->
-        <ul>
-          <li>
-            <strong>Zentrale Lage</strong>: Unser Hotel liegt im Herzen von
-            [Stadt/Region], in unmittelbarer Nähe zu den wichtigsten
-            Sehenswürdigkeiten, Einkaufsmöglichkeiten und kulturellen
-            Highlights.
-          </li>
-          <li>
-            <strong>Komfortable Zimmer</strong>: Unsere Zimmer sind stilvoll und
-            modern eingerichtet und bieten höchsten Komfort sowie
-            Annehmlichkeiten wie kostenloses WLAN, Klimaanlage und
-            Flachbildfernseher.
-          </li>
-          <li>
-            <strong>Exquisites Restaurant</strong>: Genießen Sie in unserem
-            hauseigenen Restaurant kulinarische Köstlichkeiten aus regionalen
-            und internationalen Spezialitäten, zubereitet von unseren erfahrenen
-            Küchenchefs.
-          </li>
-          <li>
-            <strong>Entspannender Wellnessbereich</strong>: Lassen Sie die Seele
-            baumeln in unserem luxuriösen Wellnessbereich mit Sauna, Dampfbad
-            und einem breiten Angebot an Massage- und Beauty-Behandlungen.
-          </li>
-          <li>
-            <strong>Modernes Fitnesscenter</strong>: Halten Sie sich fit in
-            unserem gut ausgestatteten Fitnesscenter, das 24 Stunden für Sie
-            geöffnet ist.
-          </li>
-          <li>
-            <strong>Freundlicher und professioneller Service</strong>: Unser
-            engagiertes Team steht Ihnen rund um die Uhr zur Verfügung, um Ihnen
-            einen angenehmen und unvergesslichen Aufenthalt zu ermöglichen.
-          </li>
-          <li>
-            <strong>Kostenloses WLAN</strong>: Bleiben Sie stets verbunden mit
-            unserem kostenlosen Highspeed-WLAN, das im gesamten Hotel verfügbar
-            ist.
-          </li>
-          <li>
-            <strong>Flexible Tagungs- und Veranstaltungsräume</strong>: Für
-            geschäftliche oder private Anlässe bieten wir moderne Tagungs- und
-            Veranstaltungsräume mit neuester Technik und maßgeschneidertem
-            Service.
-          </li>
-          <li>
-            <strong>Familienfreundlich</strong>: Wir heißen Familien herzlich
-            willkommen und bieten spezielle Familienzimmer sowie zahlreiche
-            Aktivitäten und Services für Kinder.
-          </li>
-          <li>
-            <strong>Haustierfreundlich</strong>: Ihre vierbeinigen Freunde sind
-            bei uns ebenfalls willkommen. Wir bieten spezielle Annehmlichkeiten
-            und Services für Haustiere.
-          </li>
-          <li>
-            <strong>Kostenloser Shuttle-Service</strong>: Nutzen Sie unseren
-            kostenlosen Shuttle-Service zu wichtigen Zielen in der Umgebung, wie
-            zum Beispiel dem Flughafen oder den wichtigsten Sehenswürdigkeiten.
-          </li>
-          <li>
-            <strong>Umweltfreundliches Hotel</strong>: Wir setzen auf
-            Nachhaltigkeit und umweltfreundliche Praktiken, um unseren
-            ökologischen Fußabdruck zu minimieren.
-          </li>
-          <li>
-            <strong>Attraktive Sonderangebote und Pakete</strong>: Profitieren
-            Sie von unseren regelmäßig wechselnden Sonderangeboten und
-            Urlaubspaketen, die Ihnen einen noch angenehmeren Aufenthalt
-            ermöglichen.
-          </li>
-        </ul>
-      </div>
+      <h1>Welcome to Boutique Hotel Technikum</h1>
+      <h2>Discover Vienna’s Hidden Gem</h2>
+      <p>
+        At Boutique Hotel Technikum, we invite you to experience the perfect
+        blend of elegance, comfort, and personalized service. Nestled in the
+        heart of Vienna, our 4-star hotel offers a unique stay that combines
+        modern amenities with Viennese charm.
+      </p>
+      <h2>Location: Unbeatable Convenience</h2>
+      <p>
+        Situated in the vibrant district of Vienna, our hotel is just a stone’s
+        throw away from the city’s iconic landmarks. Whether you’re here for
+        business or leisure, our central location ensures easy access to:
+      </p>
+      <ul>
+        <li>
+          <strong>St. Stephen’s Cathedral:</strong> Step outside our doors, and
+          you’ll find yourself facing the magnificent St. Stephen’s Cathedral.
+          Explore its Gothic architecture and climb the tower for panoramic
+          views of Vienna.
+        </li>
+        <li>
+          <strong>City Center Sights:</strong> Vienna’s major attractions,
+          including the Hofburg Palace, Belvedere Palace, and the Vienna State
+          Opera, are minutes away. Immerse yourself in history, art, and
+          culture.
+        </li>
+        <li>
+          <strong>Shopping Delight:</strong> Wander through charming streets and
+          discover boutique shops, high-end fashion, and local markets.
+          Mariahilfer Straße, Vienna’s premier shopping street, is within
+          walking distance.
+        </li>
+        <li>
+          <strong>Efficient Transportation:</strong> Our hotel is conveniently
+          located near public transportation hubs, making it easy to explore the
+          city. Hop on a tram, bus, or subway right from our doorstep.
+        </li>
+      </ul>
+      <h2>Your Home Away from Home</h2>
+      <ul>
+        <li>
+          <strong>Elegantly Appointed Rooms:</strong> Our spacious rooms feature
+          contemporary design, plush bedding, and modern amenities. Unwind after
+          a day of exploration and enjoy a restful night’s sleep.
+        </li>
+        <li>
+          <strong>Relaxation at the Spa:</strong> Treat yourself to our little
+          oasis—the hotel’s spa. Rejuvenate with a soothing massage or unwind in
+          the sauna. You deserve it!
+        </li>
+        <li>
+          <strong>Café Giacomo Aragall:</strong> Sip a cup of Viennese coffee or
+          indulge in a slice of cake at our cozy café. The perfect spot to
+          people-watch and soak in the city’s energy.
+        </li>
+      </ul>
+      <h2>Book Your Stay Today</h2>
+      <p>
+        Whether you’re here for business, a romantic getaway, or a family
+        vacation, Boutique Hotel Technikum promises an unforgettable experience.
+        We look forward to welcoming you soon!
+      </p>
     </ion-content>
   </ion-page>
 </template>

@@ -15,106 +15,50 @@
           <ion-title size="large">About</ion-title>
         </ion-toolbar>
       </ion-header>
-      <h1>About der Boutique Hotel Technikum</h1>
-
+      <h1>Boutique Hotel Technikum: Where Elegance Meets Comfort</h1>
       <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-        est Lorem ipsum dolor sit amet.
+        Welcome to <strong>Boutique Hotel Technikum</strong>, a hidden gem
+        nestled in the heart of Vienna. Our commitment to personalized service
+        and attention to detail sets us apart as a unique 4-star hotel. Whether
+        you’re visiting for business or leisure, we invite you to experience the
+        warmth and charm that define our establishment.
       </p>
-
+      <h2>Prime Location</h2>
       <p>
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-        eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum
-        dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Situated in the vibrant city center, Boutique Hotel Technikum offers
+        unparalleled convenience. Just steps away from iconic landmarks,
+        including St. Stephen’s Cathedral, our central location allows you to
+        explore Vienna’s rich history and culture effortlessly. Popular shopping
+        streets and public transportation hubs are right at our doorstep, making
+        it easy to navigate the city.
       </p>
-
+      <h2>Refined Comfort</h2>
       <p>
-        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-        suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-        vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-        consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-        delenit augue duis dolore te feugait nulla facilisi.
+        Our recently refurbished rooms blend modern elegance with comfort. Sink
+        into plush beds, surrounded by tasteful decor and soothing colors. Each
+        room is equipped with amenities to enhance your stay, including blackout
+        curtains, a coffee/tea maker, and high-speed Wi-Fi. Whether you’re here
+        for work or relaxation, we’ve created a tranquil oasis for you.
       </p>
+      <h2>Relax and Unwind</h2>
       <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-        est Lorem ipsum dolor sit amet.
+        After a day of sightseeing or meetings, indulge in our little spa. Let
+        the stress melt away as you rejuvenate in our wellness area.
+        Alternatively, savor a cup of coffee and a slice of cake at our charming
+        Café Giacomo Aragall. For wine enthusiasts, our selection of excellent
+        wines awaits – the perfect way to unwind while watching the city’s
+        hustle and bustle from our unique vantage point.
       </p>
-
+      <h2>Your Home Away from Home</h2>
       <p>
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-        eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum
-        dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-      </p>
-
-      <p>
-        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-        suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-        vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-        consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-        delenit augue duis dolore te feugait nulla facilisi.
+        At Boutique Hotel Technikum, we treat every guest like family. Our
+        dedicated staff is here to ensure your stay is memorable and
+        comfortable. Whether you need local recommendations, assistance with
+        reservations, or simply a friendly chat, we’re always at your service.
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-        est Lorem ipsum dolor sit amet.
-      </p>
-
-      <p>
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-        eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum
-        dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-      </p>
-
-      <p>
-        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-        suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-        vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-        consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-        delenit augue duis dolore te feugait nulla facilisi.
+        We look forward to welcoming you soon to Boutique Hotel Technikum, where
+        Viennese hospitality meets sophistication. 🌟
       </p>
     </ion-content>
   </ion-page>
