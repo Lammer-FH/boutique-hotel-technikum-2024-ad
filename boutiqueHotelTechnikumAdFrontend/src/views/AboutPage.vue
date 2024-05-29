@@ -28,7 +28,15 @@
 </template>
 
 <script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/vue";
 </script>
 
 <style scoped>
@@ -42,13 +50,13 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 }
 
 #container strong {
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
 }
 
 #container p {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 1.375rem;
   color: #8c8c8c;
   margin: 0;
 }
