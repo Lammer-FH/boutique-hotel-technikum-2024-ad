@@ -16,16 +16,14 @@
         </ion-toolbar>
       </ion-header>
       <h1>Impressum der Boutique Hotel Technikum</h1>
-      <!-- TODO: eigene componente für den container -->
-      <content-container>
-        <p>Für den Inhalt auf dieser Website verantwortlich</p>
-        <h2>Hotel Schani GmbH</h2>
-        <p>
-          Hotel Boutique Hotel Technikum GmbH<br />
-          Example-Straße 42<br />
-          1100 Wien, Austria<br />
-        </p>
-      </content-container>
+
+      <p>Für den Inhalt auf dieser Website verantwortlich</p>
+      <h2>Hotel Schani GmbH</h2>
+      <p>
+        Hotel Boutique Hotel Technikum GmbH<br />
+        Example-Straße 42<br />
+        1100 Wien, Austria<br />
+      </p>
     </ion-content>
   </ion-page>
 </template>
@@ -40,5 +38,4 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/vue";
-import ContentContainer from "../components/ContentContainer.vue";
 </script>
