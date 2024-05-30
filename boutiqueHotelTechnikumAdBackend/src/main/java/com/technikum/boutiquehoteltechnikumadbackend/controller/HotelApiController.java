@@ -22,7 +22,7 @@ public class HotelApiController {
     }
 
     @GetMapping("/rooms/{roomId}")
-    RoomDto getAllRooms(@PathVariable("roomId") Integer roomId) {
+    RoomDto getRoomById(@PathVariable("roomId") Integer roomId) {
         return roomService.getRoomById(roomId);
     }
 }

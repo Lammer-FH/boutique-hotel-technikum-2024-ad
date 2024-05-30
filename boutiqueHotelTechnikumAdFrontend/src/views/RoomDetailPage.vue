@@ -3,7 +3,7 @@
     <ion-header :translucent="true">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
+          <ion-back-button></ion-back-button>
         </ion-buttons>
         <ion-title>Raum</ion-title>
       </ion-toolbar>
@@ -15,18 +15,39 @@
           <ion-title size="large">Raum</ion-title>
         </ion-toolbar>
       </ion-header>
-      <h1>Raum - {{ room.name }}</h1>
-      <div id="container">
-      </div>
+      <h1>Raum - {{ roomStore.selectedRoom.title }}</h1>
+      <ion-img alt="" :src="roomStore.selectedRoom.imagePath"/>
+      <ion-badge v-for="extra in roomStore.selectedRoom.extras" :key="extra">{{ extra }}</ion-badge>
+      <p>
+        {{ roomStore.selectedRoom.description }}
+      </p>
+      <p>{{ roomStore.selectedRoom.price }} € per Person</p>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { ref } from 'vue';
+<script lang="ts">
+import {useRoomStore} from '@/store/roomsStore';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonBackButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonImg,
+  IonBadge
+} from '@ionic/vue';
 
-var room = ref({ id: 1, name: 'Test' })
+export default {
+  components: {IonBadge, IonImg, IonButtons, IonContent, IonHeader, IonBackButton, IonPage, IonTitle, IonToolbar},
+  data: () => {
+    return {
+      roomStore: useRoomStore(),
+    }
+  },
+}
 </script>
 
 <style scoped></style>

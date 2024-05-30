@@ -15,29 +15,30 @@
           <ion-title size="large">Räume</ion-title>
         </ion-toolbar>
       </ion-header>
-      <h1>Räume</h1>
-      <ion-card v-for="room in rooms">
-        <ion-card-header>
-          <ion-card-title>{{ room.name }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button @click="() => router.push('/rooms/' + room.id)">Go to detail</ion-button>
-        </ion-card-content>
-      </ion-card>
+      <RoomsItem v-for="room in roomStore.rooms" :key="room.id"
+                 @clickDetail="() => { roomStore.selectRoom(room); router.push('/rooms/' + room.id); }" :room="room"/>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+<script lang="ts">
+import {useRoomStore} from '@/store/roomsStore';
+import {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
+import {useRouter} from 'vue-router';
+import RoomsItem from './RoomsItem.vue';
 
-var rooms = ref([{name:'Test', id:1}]);
-
-const router = useRouter();
+export default {
+  components: {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItem},
+  data: () => {
+    return {
+      roomStore: useRoomStore(),
+      router: useRouter(),
+    }
+  },
+  ionViewWillEnter() {
+    this.roomStore.getRooms();
+  },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
