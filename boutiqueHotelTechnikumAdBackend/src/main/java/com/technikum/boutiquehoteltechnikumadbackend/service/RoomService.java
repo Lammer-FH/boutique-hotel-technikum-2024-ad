@@ -5,11 +5,14 @@ import com.technikum.boutiquehoteltechnikumadbackend.domain.Room;
 import com.technikum.boutiquehoteltechnikumadbackend.model.ExtraDto;
 import com.technikum.boutiquehoteltechnikumadbackend.model.RoomDto;
 import com.technikum.boutiquehoteltechnikumadbackend.repository.RoomRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomService {
@@ -25,6 +28,18 @@ public class RoomService {
         List<Room> rooms = (List<Room>) roomRepository.findAll();
         rooms = rooms.stream().filter(room -> roomAvailabilityService.isAvailAble(room, from, to)).toList();
         return createRoomDtos(rooms);
+    }
+
+    public RoomDto getRoomById(Integer roomId) {
+        Optional<Room> room = roomRepository.findById(roomId);
+
+        if(room.isEmpty()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Room not found"
+            );
+        }
+
+        return createRoomDto(room.get());
     }
 
     private List<RoomDto> createRoomDtos(List<Room> rooms) {
