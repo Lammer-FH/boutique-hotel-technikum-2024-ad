@@ -1,5 +1,17 @@
 <template>
-	<div>
+	<swiper
+		:modules="modules"
+		:centeredSlides="true"
+		navigation
+		:pagination="{ clickable: true }"
+		:scrollbar="{ draggable: true }"
+	>
+		<swiper-slide v-for="img in imgs" :key="img">
+			<img :src="'imgs/' + img" />
+		</swiper-slide>
+	</swiper>
+
+	<!-- <div>
 		<div class="row" v-for="(group, i) in imgGroups" :key="group">
 			<div
 				v-for="img in imgs.slice(i * 4, (i + 1) * 4)"
@@ -9,17 +21,27 @@
 				<img :src="'imgs/' + img" style="width: 100%" />
 			</div>
 		</div>
-	</div>
+	</div> -->
 </template>
 
 <!-- ../../public/img -->
 
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 interface Props {
 	imgs: string[];
 }
 
 defineProps<Props>();
+
+const modules = [Navigation, Pagination, Scrollbar, A11y];
 </script>
 
 <script lang="ts">
@@ -36,52 +58,38 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-* {
-	box-sizing: border-box;
-}
-
-.header {
-	text-align: center;
-	padding: 32px;
-}
-
-.row {
-	display: -ms-flexbox; /* IE10 */
-	display: flex;
-	-ms-flex-wrap: wrap; /* IE10 */
-	flex-wrap: wrap;
-	padding: 0 4px;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-	-ms-flex: 25%; /* IE10 */
-	flex: 25%;
-	max-width: 25%;
-	padding: 0 4px;
-}
-
-.column img {
-	margin-top: 8px;
-	vertical-align: middle;
+.swiper {
 	width: 100%;
+	height: 100%;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-	.column {
-		-ms-flex: 50%;
-		flex: 50%;
-		max-width: 50%;
-	}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-	.column {
-		-ms-flex: 100%;
-		flex: 100%;
-		max-width: 100%;
-	}
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.swiper-slide {
+	width: 60%;
+}
+
+.swiper-slide:nth-child(2n) {
+	width: 40%;
+}
+
+.swiper-slide:nth-child(3n) {
+	width: 20%;
 }
 </style>
