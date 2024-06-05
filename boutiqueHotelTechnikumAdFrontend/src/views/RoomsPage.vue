@@ -16,8 +16,8 @@
         </ion-toolbar>
       </ion-header>
       <RoomsItem v-for="room in roomStore.rooms" :key="room.id"
-                 @clickDetail="() => { roomStore.selectRoom(room); router.push('/rooms/' + room.id); }" :room="room"/>
-    </ion-content>
+                 @clickDetail="() => { navigateToDetail(room); }" :room="room"/>
+    </ion-content> 
   </ion-page>
 </template>
 
@@ -25,7 +25,8 @@
 import {useRoomStore} from '@/store/roomsStore';
 import {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
 import {useRouter} from 'vue-router';
-import RoomsItem from './RoomsItem.vue';
+import RoomsItem from '../components/RoomsItem.vue';
+import { Room } from '@/model/room';
 
 export default {
   components: {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItem},
@@ -38,7 +39,13 @@ export default {
   ionViewWillEnter() {
     this.roomStore.getRooms();
   },
+  methods: {
+    navigateToDetail(room : Room) {
+      this.roomStore.selectRoom(room);
+      this.router.push('/rooms/' + room.id);
+    }
+  }
 }
 </script>
 
-<style scoped></style>
+<style scoped></style>../components/RoomsItem.vue

@@ -7,28 +7,15 @@
 		:scrollbar="{ draggable: true }"
 	>
 		<swiper-slide v-for="img in imgs" :key="img">
-			<img :src="'imgs/' + img" />
+			<ImageDisplay :path="img"></ImageDisplay>
 		</swiper-slide>
 	</swiper>
-
-	<!-- <div>
-		<div class="row" v-for="(group, i) in imgGroups" :key="group">
-			<div
-				v-for="img in imgs.slice(i * 4, (i + 1) * 4)"
-				class="column"
-				:key="img"
-			>
-				<img :src="'imgs/' + img" style="width: 100%" />
-			</div>
-		</div>
-	</div> -->
 </template>
-
-<!-- ../../public/img -->
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import ImageDisplay from '@/components/ImageDisplay.vue'
 
 import 'swiper/css';
 import 'swiper/css/navigation';

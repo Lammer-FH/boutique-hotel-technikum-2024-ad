@@ -40,15 +40,22 @@ export const useRoomStore = defineStore('room', {
         getRooms(from = "", to = "") {
             if (apiUrl !== undefined) {
                 if (from === "") {
-                    from = "01-01-1000";
+                    from = "1000-01-01";
                 }
                 if (to === "") {
-                    to = "31-31-3000";
+                    to = "3000-12-31";
                 }
-                axios.get<Room[]>(apiUrl + "/rooms?from=" + from + "&to=" + to)
+                axios.get<Room[]>(apiUrl + "/rooms?from=" + from + "&to=" + to, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
                     .then(response => {
                         this.rooms = response.data;
                         console.log(response);
+                    })
+                    .catch(error => {
+                        console.log(error);
                     });
             }
         },
