@@ -66,8 +66,7 @@ public class RoomService {
 
         for (Extra extra: extras) {
             ExtraDto extraDto = new ExtraDto();
-            extraDto.setId(extra.getId());
-            extraDto.setName(extra.getName());
+            extraDto.setName(extra.getName().name());
             extraDtos.add(extraDto);
         }
         return extraDtos;

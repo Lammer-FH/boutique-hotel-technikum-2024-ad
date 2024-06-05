@@ -5,10 +5,10 @@ INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price)
 INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('1.jpg', 'Room 2', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 65);
 INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('2.jpg', 'Room 3', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 45);
 
-INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('Air conditioning');
-INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('Free WiFi');
-INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('Balcony');
-INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('Flat-screen TV');
+INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('AIR_CONDITIONING');
+INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('FREE_WIFI');
+INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('BALCONY');
+INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('FLAT_SCREEN_TV');
 
 INSERT INTO boutique_hotel_technikum.Room_has_Extra (room_idRoom, extra_idExtra) VALUES (1, 1);
 INSERT INTO boutique_hotel_technikum.Room_has_Extra (room_idRoom, extra_idExtra) VALUES (2, 1);
