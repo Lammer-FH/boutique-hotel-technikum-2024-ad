@@ -15,21 +15,29 @@
           <ion-title size="large">Räume</ion-title>
         </ion-toolbar>
       </ion-header>
-      <RoomsItem v-for="room in roomStore.rooms" :key="room.id"
-                 @clickDetail="() => { navigateToDetail(room); }" :room="room"/>
-    </ion-content> 
+      <RoomsItemList :rooms="roomStore.rooms" @navigateToDetail="navigateToDetail"></RoomsItemList>
+    </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
 import {useRoomStore} from '@/store/roomsStore';
-import {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  toastController
+} from '@ionic/vue';
 import {useRouter} from 'vue-router';
-import RoomsItem from '../components/RoomsItem.vue';
-import { Room } from '@/model/room';
+import RoomsItemList from '../components/RoomsItemList.vue';
+import {Room} from '@/model/room';
 
 export default {
-  components: {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItem},
+  components: {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItemList},
   data: () => {
     return {
       roomStore: useRoomStore(),
@@ -37,13 +45,26 @@ export default {
     }
   },
   ionViewWillEnter() {
-    this.roomStore.getRooms();
+    this.roomStore.getRooms()
+        .catch((error) => {
+          this.showError('bottom');
+          console.log(error)
+        });
   },
   methods: {
-    navigateToDetail(room : Room) {
+    navigateToDetail(room: Room) {
       this.roomStore.selectRoom(room);
       this.router.push('/rooms/' + room.id);
-    }
+    },
+    async showError(position: 'top' | 'middle' | 'bottom') {
+      const toast = await toastController.create({
+        message: 'Die Räume konnten nicht geladen werden!',
+        duration: 3000,
+        position: position,
+        color: "danger",
+      });
+      await toast.present();
+    },
   }
 }
 </script>
