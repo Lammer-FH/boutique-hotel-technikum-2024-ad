@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.technikum.boutiquehoteltechnikumadbackend.service.ExtrasHelper.createExtras;
+
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
@@ -59,17 +61,6 @@ public class RoomService {
         roomDto.setPrice(room.getPrice());
         roomDto.setExtras(createExtras(room.getExtras()));
         return roomDto;
-    }
-
-    private List<ExtraDto> createExtras(List<Extra> extras) {
-        List<ExtraDto> extraDtos = new ArrayList<>();
-
-        for (Extra extra: extras) {
-            ExtraDto extraDto = new ExtraDto();
-            extraDto.setName(extra.getName().name());
-            extraDtos.add(extraDto);
-        }
-        return extraDtos;
     }
 
     public Optional<Room> findRoomById(Integer roomId) {
