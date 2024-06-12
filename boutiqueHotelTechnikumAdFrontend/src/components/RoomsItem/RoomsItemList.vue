@@ -17,10 +17,11 @@
 <script lang="ts">
 import {Room} from '@/model/room';
 import {IonButton, IonButtons, IonList, IonTitle, IonToolbar} from '@ionic/vue';
-import RoomsItem from "@/components/RoomsItem.vue";
+import RoomsItem from "@/components/RoomsItem/RoomsItem.vue";
+import {PropType} from "vue";
 
 export default {
-  components: {RoomsItem, IonList, IonToolbar, IonButtons, IonButton, IonTitle },
+  components: {RoomsItem, IonList, IonToolbar, IonButtons, IonButton, IonTitle},
   data() {
     return {
       pageIndex: 0,
@@ -29,7 +30,7 @@ export default {
   },
   props: {
     rooms: {
-      type: Array<Room>,
+      type: Array as PropType<Array<Room>>,
       required: true
     },
   },

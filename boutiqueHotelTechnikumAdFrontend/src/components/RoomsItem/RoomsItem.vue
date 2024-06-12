@@ -15,14 +15,15 @@
 <script lang="ts">
 import { Room } from '@/model/room';
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle} from '@ionic/vue';
-import ImageDisplay from './ImageDisplay.vue';
-import ExtrasDisplay from './ExtrasDisplay.vue';
+import ImageDisplay from '../ImageDisplay.vue';
+import ExtrasDisplay from '../ExtrasDisplay.vue';
+import {PropType} from "vue";
 
 export default {
   components: {IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButton, ImageDisplay, ExtrasDisplay},
   props: {
     room: {
-      type: Room,
+      type: Object as PropType<Room>,
       required: true
     },
   },

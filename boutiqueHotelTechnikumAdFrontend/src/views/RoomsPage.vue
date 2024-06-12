@@ -15,6 +15,7 @@
           <ion-title size="large">Räume</ion-title>
         </ion-toolbar>
       </ion-header>
+      <RoomsItemListFilter @filterRoomItems="filterRooms"></RoomsItemListFilter>
       <RoomsItemList :rooms="roomStore.rooms" @navigateToDetail="navigateToDetail"></RoomsItemList>
     </ion-content>
   </ion-page>
@@ -33,11 +34,14 @@ import {
   toastController
 } from '@ionic/vue';
 import {useRouter} from 'vue-router';
-import RoomsItemList from '../components/RoomsItemList.vue';
+import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import {Room} from '@/model/room';
+import RoomsItemListFilter from "@/components/RoomsItem/RoomsItemListFilter.vue";
 
 export default {
-  components: {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItemList},
+  components: {
+    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, RoomsItemList,
+    RoomsItemListFilter,},
   data: () => {
     return {
       roomStore: useRoomStore(),
@@ -55,6 +59,9 @@ export default {
     navigateToDetail(room: Room) {
       this.roomStore.selectRoom(room);
       this.router.push('/rooms/' + room.id);
+    },
+    filterRooms() {
+      this.roomStore.getRooms(this.roomStore.filter.from, this.roomStore.filter.to);
     },
     async showError(position: 'top' | 'middle' | 'bottom') {
       const toast = await toastController.create({
