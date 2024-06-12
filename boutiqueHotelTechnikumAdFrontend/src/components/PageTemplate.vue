@@ -2,7 +2,10 @@
 	<ion-page>
 		<ion-header :translucent="true">
 			<ion-toolbar>
-				<ion-buttons slot="start">
+        <ion-buttons slot="start" v-if="useBackButton">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+				<ion-buttons slot="start" v-else>
 					<ion-menu-button color="primary"></ion-menu-button>
 				</ion-buttons>
 				<ion-title>
@@ -23,8 +26,9 @@
 	</ion-page>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import {
+IonBackButton,
 	IonButtons,
 	IonContent,
 	IonHeader,
@@ -33,10 +37,14 @@ import {
 	IonTitle,
 	IonToolbar,
 } from '@ionic/vue';
-</script>
 
-<script lang="ts">
 export default {
-
-};
+  components: { IonPage, IonContent, IonToolbar, IonHeader, IonButtons, IonMenuButton, IonTitle, IonBackButton },
+  props: {
+    useBackButton: {
+      type: Boolean,
+      default: false,
+    }
+  }
+}
 </script>

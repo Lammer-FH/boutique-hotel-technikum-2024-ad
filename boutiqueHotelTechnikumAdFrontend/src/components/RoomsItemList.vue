@@ -3,11 +3,11 @@
     <RoomsItem v-for="room in roomsPage" :key="room.id"
                @clickDetail="() => { $emit('navigateToDetail', room); }" :room="room"/>
   </ion-list>
-  <ion-toolbar>
+  <ion-toolbar v-if="pageAmount > 0">
     <ion-buttons slot="start">
       <ion-button @click="previousPage">Previous</ion-button>
     </ion-buttons>
-    <ion-title>{{ pageDisplay }}</ion-title>
+    <ion-title>Seite {{ pageDisplay }} von {{ pageAmount }}</ion-title>
     <ion-buttons slot="end">
       <ion-button @click="nextPage">Next</ion-button>
     </ion-buttons>
@@ -16,11 +16,11 @@
 
 <script lang="ts">
 import {Room} from '@/model/room';
-import {IonList} from '@ionic/vue';
+import {IonButton, IonButtons, IonList, IonTitle, IonToolbar} from '@ionic/vue';
 import RoomsItem from "@/components/RoomsItem.vue";
 
 export default {
-  components: {RoomsItem, IonList},
+  components: {RoomsItem, IonList, IonToolbar, IonButtons, IonButton, IonTitle },
   data() {
     return {
       pageIndex: 0,
@@ -39,7 +39,7 @@ export default {
       return this.rooms.slice(this.pageIndex * this.itemsPerPage, this.pageIndex * this.itemsPerPage + this.itemsPerPage);
     },
     pageAmount(): number {
-      return this.rooms.length / this.itemsPerPage
+      return Math.ceil(this.rooms.length / this.itemsPerPage);
     },
     pageDisplay(): number {
       return this.pageIndex + 1;

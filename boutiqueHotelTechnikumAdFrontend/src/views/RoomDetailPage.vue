@@ -1,5 +1,5 @@
 <template>
-  <PageTemplate>
+  <PageTemplate :use-back-button="true">
     <template #menuTitle>
       Raum - {{ selectedRoom.title }}
     </template>
