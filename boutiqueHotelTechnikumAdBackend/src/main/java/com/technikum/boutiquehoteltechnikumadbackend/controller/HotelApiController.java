@@ -1,6 +1,8 @@
 package com.technikum.boutiquehoteltechnikumadbackend.controller;
 
+import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationRequestBody;
 import com.technikum.boutiquehoteltechnikumadbackend.model.RoomDto;
+import com.technikum.boutiquehoteltechnikumadbackend.service.ReservationService;
 import com.technikum.boutiquehoteltechnikumadbackend.service.RoomService;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +13,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class HotelApiController {
     private final RoomService roomService;
+    private final ReservationService reservationService;
 
-    public HotelApiController(RoomService roomService) {
+    public HotelApiController(RoomService roomService, ReservationService reservationService) {
         this.roomService = roomService;
+        this.reservationService = reservationService;
     }
 
     @GetMapping("/rooms")
@@ -24,5 +28,10 @@ public class HotelApiController {
     @GetMapping("/rooms/{roomId}")
     RoomDto getRoomById(@PathVariable("roomId") Integer roomId) {
         return roomService.getRoomById(roomId);
+    }
+
+    @PostMapping("/reservation/{roomId}")
+    RoomDto createReservation(@PathVariable("roomId") Integer roomId, @RequestBody ReservationRequestBody reservationRequestBody) {
+        return reservationService.bookRoom(roomId, reservationRequestBody);
     }
 }
