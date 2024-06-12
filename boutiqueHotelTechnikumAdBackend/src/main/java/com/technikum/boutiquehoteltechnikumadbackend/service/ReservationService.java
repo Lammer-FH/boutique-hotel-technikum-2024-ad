@@ -3,6 +3,7 @@ package com.technikum.boutiquehoteltechnikumadbackend.service;
 import com.technikum.boutiquehoteltechnikumadbackend.domain.Guest;
 import com.technikum.boutiquehoteltechnikumadbackend.domain.Reservation;
 import com.technikum.boutiquehoteltechnikumadbackend.domain.Room;
+import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationDto;
 import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationRequestBody;
 import com.technikum.boutiquehoteltechnikumadbackend.model.RoomDto;
 import com.technikum.boutiquehoteltechnikumadbackend.repository.ReservationRepository;
@@ -26,7 +27,7 @@ public class ReservationService {
         this.roomAvailabilityService = roomAvailabilityService;
     }
 
-    public RoomDto bookRoom(Integer roomId, ReservationRequestBody reservationRequestBody) {
+    public ReservationDto bookRoom(Integer roomId, ReservationRequestBody reservationRequestBody) {
         Optional<Room> room = roomService.findRoomById(roomId);
 
         if(room.isEmpty()) {
@@ -57,8 +58,12 @@ public class ReservationService {
         reservation.setTo(reservationRequestBody.getTo().atStartOfDay());
         reservation.setDoBreakfast(reservationRequestBody.getDoBreakfast());
         reservation.setGuest(guest);
-        reservationRepository.save(reservation);
+        reservation = reservationRepository.save(reservation);
 
-        return roomService.createRoomDto(room.get());
+        ReservationDto reservationDto = new ReservationDto();
+        reservationDto.setReservationId(reservation.getId());
+        reservationDto.setRoomTitle(reservation.getRoom().getTitle());
+
+        return reservationDto;
     }
 }
