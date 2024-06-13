@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 import { Room } from '@/model/room';
 
-const apiUrl = 'http://localhost:8081/api';
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 export const useRoomStore = defineStore('room', {
     state: () => {
@@ -13,10 +13,8 @@ export const useRoomStore = defineStore('room', {
         };
     },
     actions: {
-        async getRooms(
-            from: Date = new Date(1000, 1, 1),
-            to: Date = new Date(3000, 12, 31)
-        ) {
+        async getRooms(from: Date = new Date(),
+                       to: Date = new Date()) {
             if (apiUrl !== undefined) {
                 return axios
                     .get<Room[]>(
