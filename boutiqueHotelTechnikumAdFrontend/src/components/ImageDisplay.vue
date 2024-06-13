@@ -1,5 +1,5 @@
 <template>
-  <ion-img alt="" :src="'/imgs/' + path"/>
+  <ion-img :alt="alt" :src="'/imgs/' + path"/>
 </template>
 
 <script lang="ts">
@@ -12,6 +12,10 @@ export default {
       type: String,
       required: true
     },
+    alt: {
+      type: String,
+      default: '',
+    }
   },
 }
 </script>
