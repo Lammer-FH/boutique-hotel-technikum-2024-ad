@@ -1,15 +1,10 @@
-version: '3.1'
+version: '2'
 
 services:
   botique-hotel-db:
     image: 'mariadb:11.3.2-jammy'
     ports:
       - 3306:3306
-    environment:
-      - MARIADB_ROOT_PASSWORD=root
-      - MARIADB_USER=botiquehotel
-      - MARIADB_PASSWORD=password
-      - MARIADB_DATABASE=boutique_hotel_technikum
     volumes:
       - botique-hotel-db-vol:/var/lib/mysql
       - ./mariadb-setup-scripts/:/docker-entrypoint-initdb.d/
@@ -17,6 +12,18 @@ services:
     image: adminer
     ports:
       - 8080:8080
+  backend:
+    image: 'awt/hotel-booking-backend:latest'
+    build: 
+      context: './boutiqueHotelTechnikumAdBackend'
+      dockerfile: './Dockerfile'
+    ports:
+      - 8081:8081
+    depends_on:
+      - botique-hotel-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://botique-hotel-db:3306/boutique_hotel_technikum
+
 
 volumes:
   botique-hotel-db-vol:
