@@ -1,23 +1,18 @@
 <template>
   <PageTemplate :use-back-button="true">
-    <template #menuTitle>
-      Raum - {{ selectedRoom.title }}
-    </template>
-    <template #title>
-      Raum - {{ selectedRoom.title }}
-    </template>
-
+    <template #menuTitle> Raum - {{ selectedRoom.title }} </template>
+    <template #title> Raum - {{ selectedRoom.title }} </template>
     <ion-list>
       <ion-list-header>
         <ion-title>Raum - {{ selectedRoom.title }}</ion-title>
       </ion-list-header>
       <ion-item>
         <ion-label>Beschreibung:</ion-label>
-        <ion-text>{{ selectedRoom.description }}</ion-text>
+        <ion-label>{{ selectedRoom.description }}</ion-label>
       </ion-item>
       <ion-item>
         <ion-label>Preis:</ion-label>
-        <ion-text>{{ selectedRoom.price }} € per Person</ion-text>
+        <ion-label>{{ selectedRoom.price }} € per Person</ion-label>
       </ion-item>
       <ion-item>
         <ion-label>Extras:</ion-label>
@@ -31,25 +26,37 @@
 </template>
 
 <script lang="ts">
-import ExtrasDisplay from '@/components/ExtrasDisplay.vue';
-import ImageDisplay from '@/components/ImageDisplay.vue';
-import PageTemplate from '@/components/PageTemplate.vue';
-import {useRoomStore} from '@/store/roomsStore';
-import {IonItem, IonLabel, IonList, IonListHeader, IonText, IonTitle} from "@ionic/vue";
+import ExtrasDisplay from "@/components/ExtrasDisplay.vue";
+import ImageDisplay from "@/components/ImageDisplay.vue";
+import PageTemplate from "@/components/PageTemplate.vue";
+import { useRoomStore } from "@/store/roomsStore";
+import {
+  IonItem,
+  IonLabel,
+  IonList,
+  IonListHeader,
+  IonTitle,
+} from "@ionic/vue";
 
 export default {
   components: {
-    ImageDisplay, ExtrasDisplay, PageTemplate,
-    IonTitle, IonLabel, IonList, IonListHeader, IonText, IonItem,
+    ImageDisplay,
+    ExtrasDisplay,
+    PageTemplate,
+    IonTitle,
+    IonLabel,
+    IonList,
+    IonListHeader,
+    IonItem,
   },
   data: () => {
-    const roomStore = useRoomStore()
+    const roomStore = useRoomStore();
     return {
       roomStore,
-      selectedRoom: roomStore.selectedRoom
-    }
+      selectedRoom: roomStore.selectedRoom,
+    };
   },
-}
+};
 </script>
 
 <style scoped></style>
