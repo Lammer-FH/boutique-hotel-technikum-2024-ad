@@ -14,8 +14,9 @@ public class Extra {
     @Column(name = "idExtra")
     private Integer id;
 
-    @Column(name = "name")
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "name", columnDefinition = "varchar")
+    private ExtraName name;
 
     @ManyToMany(mappedBy = "extras")
     private List<Room> rooms;

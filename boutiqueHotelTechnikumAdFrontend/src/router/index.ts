@@ -1,18 +1,27 @@
+import { routeUrls } from "@/navigation.config";
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "",
+    path: routeUrls.home,
     component: () => import("../views/LandingPage.vue"),
   },
   {
-    path: "/about",
+    path: routeUrls.about,
     component: () => import("../views/AboutPage.vue"),
   },
   {
-    path: "/impressum",
+    path: routeUrls.impressum,
     component: () => import("../views/ImpressumPage.vue"),
+  },
+  {
+    path: routeUrls.rooms,
+    component: () => import("../views/RoomsPage.vue"),
+  },
+  {
+    path: routeUrls.roomDetails,
+    component: () => import("../views/RoomDetailPage.vue"),
   },
 ];
 
