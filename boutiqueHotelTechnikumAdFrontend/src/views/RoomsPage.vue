@@ -2,6 +2,9 @@
     <PageTemplate :use-back-button="true">
         <template #menuTitle> Räume </template>
         <template #title> Räume </template>
+        <RoomsItemListFilter
+            @filterRoomItems="filterRooms"
+        ></RoomsItemListFilter>
         <RoomsItemList
             :rooms="roomStore.rooms"
             @navigateToDetail="navigateToDetail"
@@ -16,11 +19,13 @@ import { useRouter } from 'vue-router';
 import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import { Room } from '@/model/room';
 import PageTemplate from '@/components/PageTemplate.vue';
+import RoomsItemListFilter from '@/components/RoomsItem/RoomsItemListFilter.vue';
 
 export default {
     components: {
         PageTemplate,
         RoomsItemList,
+        RoomsItemListFilter,
     },
     data: () => {
         return {
@@ -59,4 +64,3 @@ export default {
 </script>
 
 <style scoped></style>
-../components/RoomsItem.vue
