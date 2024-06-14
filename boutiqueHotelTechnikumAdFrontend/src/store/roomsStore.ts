@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import { Room } from '@/model/room';
+import { ReservationResult } from '@/model/reservationResult';
+import { Reservation } from '@/model/reservation';
 
 const apiUrl = 'http://localhost:8081/api';
 
@@ -42,6 +44,23 @@ export const useRoomStore = defineStore('room', {
         setFilter(from: string, to: string) {
             this.filter.to = new Date(to);
             this.filter.from = new Date(from);
+        },
+        async reserveRoom(room: Room, reservation: Reservation) {
+            if (apiUrl !== undefined) {
+                return axios
+                    .post<ReservationResult>(
+                        apiUrl + '/reservation/' + room.id,
+                        reservation,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    )
+                    .then((response) => {
+                        reservation.id = response.data.reservationId;
+                    });
+            }
         },
     },
 });
