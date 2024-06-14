@@ -69,7 +69,7 @@ export default {
 
 .image-display {
     height: auto;
-    padding: auto;
+    padding: 0;
 }
 
 .desktop-card {
