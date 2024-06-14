@@ -1,7 +1,7 @@
 <template>
     <form>
         <ion-input
-            label="Buchen von:"
+            label="Book from:"
             type="date"
             v-model="from"
             required
@@ -9,20 +9,20 @@
         ></ion-input>
 
         <ion-input
-            label="Buchen bis:"
+            label="Book to:"
             type="date"
             v-model="to"
             required
             class="date-picker"
         ></ion-input>
 
-        <ion-button @click="filter">Suchen</ion-button>
+        <ion-button @click="filter">Search</ion-button>
     </form>
 </template>
 
 <script lang="ts">
-import { IonButton, IonInput } from '@ionic/vue';
 import { useRoomStore } from '@/store/roomsStore';
+import { IonButton, IonInput } from '@ionic/vue';
 
 export default {
     components: { IonInput, IonButton },
