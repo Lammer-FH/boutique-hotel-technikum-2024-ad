@@ -1,8 +1,8 @@
-import {defineStore} from 'pinia'
-import axios from 'axios';
-import {Room} from "@/model/room";
+import { defineStore } from "pinia";
+import axios from "axios";
+import { Room } from "@/model/room";
 
-const apiUrl = "http://localhost:8081/api";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 export const useRoomStore = defineStore('room', {
     state: () => {
@@ -34,5 +34,19 @@ export const useRoomStore = defineStore('room', {
             this.filter.to = new Date(to);
             this.filter.from = new Date(from);
         }
+        return axios
+          .get<Room[]>(apiUrl + "/rooms?from=" + from + "&to=" + to, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            this.rooms = response.data;
+          });
+      }
     },
-})
+    selectRoom(room: Room) {
+      this.selectedRoom = room;
+    },
+  },
+});
