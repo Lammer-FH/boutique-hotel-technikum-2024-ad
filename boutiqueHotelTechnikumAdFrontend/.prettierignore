@@ -1,0 +1,8 @@
+LICENSE
+**/*.png
+**/*.jpeg
+**/*.jpg
+**/.gitignore
+.prettierignore
+package-lock.json
+dist/**/*
