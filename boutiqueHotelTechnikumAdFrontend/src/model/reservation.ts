@@ -1,6 +1,6 @@
 export class Reservation {
     constructor(
-        public id: number = 0,
+        public id: number | null = null,
         public firstName: string = '',
         public lastName: string = '',
         public eMail: string = '',

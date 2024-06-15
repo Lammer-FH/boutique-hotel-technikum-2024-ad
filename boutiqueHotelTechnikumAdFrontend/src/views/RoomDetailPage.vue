@@ -17,7 +17,6 @@
         <ReservationForm
             :from="roomStore.filter.from"
             :to="roomStore.filter.to"
-            @submitReservationForGuest="submitReservation"
         ></ReservationForm>
     </PageTemplate>
 </template>
@@ -28,7 +27,6 @@ import ImageDisplay from '@/components/ImageDisplay.vue';
 import PageTemplate from '@/components/PageTemplate.vue';
 import { useRoomStore } from '@/store/roomsStore';
 import ReservationForm from '@/components/ReservationForm.vue';
-import { Reservation } from '@/model/reservation';
 
 export default {
     components: {
@@ -43,11 +41,6 @@ export default {
             roomStore,
             selectedRoom: roomStore.selectedRoom,
         };
-    },
-    methods: {
-        submitReservation(reservation: Reservation) {
-            this.roomStore.reserveRoom(this.selectedRoom, reservation);
-        },
     },
 };
 </script>
