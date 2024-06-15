@@ -17,6 +17,8 @@ import {
     toastController,
 } from '@ionic/vue';
 import { useRoomStore } from '@/store/roomsStore';
+import { useRouter } from 'vue-router';
+import { routeUrls } from '@/navigation.config';
 
 export default defineComponent({
     name: 'ReservationForm',
@@ -25,6 +27,7 @@ export default defineComponent({
             reservation: new Reservation(),
             confirmation: false,
             roomStore: useRoomStore(),
+            router: useRouter(),
         };
     },
     components: {
@@ -49,8 +52,16 @@ export default defineComponent({
                 this.roomStore
                     .reserveRoom(this.roomStore.selectedRoom, this.reservation)
                     .then(() => {
-                        this.showToast('Raum reserviert', false, 'top');
-                        modalController.dismiss();
+                        if (this.reservation.id !== null) {
+                            this.showToast('Raum reserviert', false, 'top');
+                            modalController.dismiss();
+                            this.router.push(
+                                routeUrls.reservationConfirmation.replace(
+                                    ':id',
+                                    this.reservation.id.toString()
+                                )
+                            );
+                        }
                     })
                     .catch((error) => {
                         console.log(error);

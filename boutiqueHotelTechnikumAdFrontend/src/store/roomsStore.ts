@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Room } from '@/model/room';
 import { ReservationResult } from '@/model/reservationResult';
 import { Reservation } from '@/model/reservation';
+import { ReservationConfirmation } from '@/model/reservationConfirmation';
 
 const apiUrl = 'http://localhost:8081/api';
 
@@ -11,6 +12,7 @@ export const useRoomStore = defineStore('room', {
         return {
             rooms: [] as Room[],
             selectedRoom: Room.prototype,
+            reservation: ReservationConfirmation.prototype,
             filter: { to: new Date(), from: new Date() },
         };
     },
@@ -59,6 +61,22 @@ export const useRoomStore = defineStore('room', {
                     )
                     .then((response) => {
                         reservation.id = response.data.reservationId;
+                    });
+            }
+        },
+        async getReservationConfirmation(reservationId: string) {
+            if (apiUrl !== undefined) {
+                return axios
+                    .get<ReservationConfirmation>(
+                        apiUrl + '/reservation/confirmation/' + reservationId,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    )
+                    .then((response) => {
+                        this.reservation = response.data;
                     });
             }
         },

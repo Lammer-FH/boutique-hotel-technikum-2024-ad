@@ -1,6 +1,7 @@
 package com.technikum.boutiquehoteltechnikumadbackend.controller;
 
 import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationConfirmationDto;
+import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationDto;
 import com.technikum.boutiquehoteltechnikumadbackend.model.ReservationRequestBody;
 import com.technikum.boutiquehoteltechnikumadbackend.model.RoomDto;
 import com.technikum.boutiquehoteltechnikumadbackend.service.ReservationService;
@@ -33,7 +34,7 @@ public class HotelApiController {
     }
 
     @PostMapping("/reservation/{roomId}")
-    ReservationConfirmationDto createReservation(@PathVariable("roomId") Integer roomId, @RequestBody ReservationRequestBody reservationRequestBody) {
+    ReservationDto createReservation(@PathVariable("roomId") Integer roomId, @RequestBody ReservationRequestBody reservationRequestBody) {
         return reservationService.bookRoom(roomId, reservationRequestBody);
     }
 
