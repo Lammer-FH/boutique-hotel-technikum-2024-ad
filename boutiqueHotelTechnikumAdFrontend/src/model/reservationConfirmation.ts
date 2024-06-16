@@ -4,6 +4,7 @@ export class ReservationConfirmation {
         public to: Date = new Date(),
         public roomTitle: string = '',
         public roomDescription: string = '',
+        public imagePath: string = '',
         public roomPrice: number = 0,
         public extras: string[] = [],
         public firstName: string = '',
