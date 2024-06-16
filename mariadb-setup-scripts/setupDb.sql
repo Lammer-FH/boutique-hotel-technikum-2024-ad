@@ -104,6 +104,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('0.jpg', 'Room 1', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 50);
 INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('1.jpg', 'Room 2', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 65);
 INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('2.jpg', 'Room 3', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 45);
+INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('3.jpg', 'Room 4', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 234);
+INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('4.jpg', 'Room 5', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 123);
+INSERT INTO boutique_hotel_technikum.Room (imagePath, title, description, price) VALUES ('5.jpg', 'Room 6', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 23);
 
 INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('AIR_CONDITIONING');
 INSERT INTO boutique_hotel_technikum.Extra (name) VALUES ('FREE_WIFI');
