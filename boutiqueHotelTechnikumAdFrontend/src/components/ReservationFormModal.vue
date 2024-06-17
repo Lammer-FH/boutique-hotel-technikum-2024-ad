@@ -157,7 +157,7 @@ export default defineComponent({
                 </ion-item>
                 <ion-item>
                     <ion-checkbox
-                        v-model="reservation.breakfast"
+                        v-model="reservation.doBreakfast"
                         :disabled="confirmation"
                         >Frühstück Ja/Nein</ion-checkbox
                     >

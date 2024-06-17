@@ -4,7 +4,7 @@ export class Reservation {
         public firstName: string = '',
         public lastName: string = '',
         public eMail: string = '',
-        public breakfast: boolean = false,
+        public doBreakfast: boolean = false,
         public from: Date = new Date(),
         public to: Date = new Date()
     ) {}
