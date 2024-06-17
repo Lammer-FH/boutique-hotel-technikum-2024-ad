@@ -1,5 +1,5 @@
 <template>
-    <PageTemplate>
+    <PageTemplate :use-back-button="true">
         <template #menuTitle> Räume </template>
         <template #title> Räume </template>
         <RoomsItemListFilter
@@ -39,15 +39,15 @@ export default {
             this.router.push('/rooms/' + room.id);
         },
         async filterRooms() {
-            const loadingIndicator = await this.showLoading();
-            this.roomStore
-                .getRooms(this.roomStore.filter.from, this.roomStore.filter.to)
-                .catch(() => {
-                    this.showError('bottom');
-                })
-                .finally(() => {
-                    loadingIndicator.dismiss();
-                });
+          const loadingIndicator = await this.showLoading();
+          this.roomStore.getRooms(
+                this.roomStore.filter.from,
+                this.roomStore.filter.to
+            ).catch(() => {
+              this.showError('bottom');
+            }).finally(() => {
+              loadingIndicator.dismiss();
+            });
         },
         async showError(position: 'top' | 'middle' | 'bottom') {
             const toast = await toastController.create({
@@ -59,14 +59,14 @@ export default {
             await toast.present();
         },
         async showLoading() {
-            const loading = await loadingController.create({
-                message: 'Räume werden geladen...',
-            });
+          const loading = await loadingController.create({
+            message: 'Räume werden geladen...',
+          });
 
-            await loading.present();
-            return loading;
+          await loading.present();
+          return loading;
         },
-    },
+      },
 };
 </script>
 
