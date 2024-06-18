@@ -14,10 +14,8 @@
 
         <h2>Preis:</h2>
         <p>{{ selectedRoom.price }} € per Person</p>
-        <ReservationForm
-            :from="roomStore.filter.from"
-            :to="roomStore.filter.to"
-        ></ReservationForm>
+
+        <ReservationFormModal></ReservationFormModal>
     </PageTemplate>
 </template>
 
@@ -26,11 +24,11 @@ import ExtrasDisplay from '@/components/ExtrasDisplay.vue';
 import ImageDisplay from '@/components/ImageDisplay.vue';
 import PageTemplate from '@/components/PageTemplate.vue';
 import { useRoomStore } from '@/store/roomsStore';
-import ReservationForm from '@/components/ReservationForm.vue';
+import ReservationFormModal from '@/components/ReservationFormModal.vue';
 
 export default {
     components: {
-        ReservationForm,
+        ReservationFormModal,
         ImageDisplay,
         ExtrasDisplay,
         PageTemplate,

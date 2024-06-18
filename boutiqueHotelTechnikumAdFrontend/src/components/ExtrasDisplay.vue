@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts">
-import { IonIcon } from '@ionic/vue';
+import { IonBadge, IonIcon } from '@ionic/vue';
 
 export default {
-    components: { IonIcon },
+    components: { IonIcon, IonBadge },
     props: {
         extras: {
             type: Array,
