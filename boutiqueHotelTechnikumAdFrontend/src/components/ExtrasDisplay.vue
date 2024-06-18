@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ion-badge class="ion-margin" v-for="extra in extras" :key="extra.name">
+        <ion-badge class="badge" v-for="extra in extras" :key="extra.name">
             <ion-icon
                 size="large"
                 :name="getIconName(extra.name)"
@@ -40,3 +40,15 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.badge {
+    margin-right: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .badge {
+        margin-top: 1.5rem;
+    }
+}
+</style>

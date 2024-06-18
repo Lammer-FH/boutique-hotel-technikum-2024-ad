@@ -18,6 +18,7 @@ import { useRoomStore } from '@/store/roomsStore';
 import HelperService from '@/service/HelperService';
 import { useRouter } from 'vue-router';
 import { routeUrls } from '@/navigation.config';
+import ButtonGroup from '@/components/ButtonGroup.vue';
 
 export default defineComponent({
     name: 'ReservationFormModal',
@@ -33,6 +34,7 @@ export default defineComponent({
         IonButton,
         IonModal,
         IonTitle,
+        ButtonGroup,
     },
     data() {
         return {
@@ -108,7 +110,9 @@ export default defineComponent({
         <ion-header>
             <ion-toolbar>
                 <ion-buttons slot="start">
-                    <ion-button @click="dismiss()">Cancel</ion-button>
+                    <ion-button class="cancel-button" @click="dismiss()"
+                        >Cancel</ion-button
+                    >
                 </ion-buttons>
                 <ion-title>Room reservation</ion-title>
             </ion-toolbar>
@@ -116,73 +120,94 @@ export default defineComponent({
         <ion-content class="ion-padding">
             <ion-list>
                 <form @submit.prevent="submitReservation">
-                    <ion-item>
-                        <ion-input
-                            label="Book from"
-                            type="date"
-                            :value="reservation.fromFormated"
-                            required
-                            :disabled="true"
-                        ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input
-                            label="Book to"
-                            type="date"
-                            :value="reservation.toFormated"
-                            required
-                            :disabled="true"
-                        ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input
-                            label="Firstname*"
-                            type="text"
-                            v-model="reservation.firstName"
-                            required
-                            :disabled="confirmation"
-                        ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input
-                            label="Lastname*"
-                            type="text"
-                            v-model="reservation.lastName"
-                            required
-                            :disabled="confirmation"
-                        ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input
-                            label="E-Mail*"
-                            type="email"
-                            v-model="reservation.eMail"
-                            required
-                            :disabled="confirmation"
-                        ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-checkbox
-                            v-model="reservation.doBreakfast"
-                            :disabled="confirmation"
-                            >Breakfast Yes/No</ion-checkbox
+                    <ion-list>
+                        <ion-item>
+                            <ion-input
+                                label="Book from"
+                                type="date"
+                                :value="reservation.fromFormated"
+                                required
+                                :disabled="true"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input
+                                label="Book to"
+                                type="date"
+                                :value="reservation.toFormated"
+                                required
+                                :disabled="true"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input
+                                label="Firstname*"
+                                type="text"
+                                placeholder="Max"
+                                v-model="reservation.firstName"
+                                required
+                                :disabled="confirmation"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input
+                                label="Lastname*"
+                                type="text"
+                                placeholder="Mustermann"
+                                v-model="reservation.lastName"
+                                required
+                                :disabled="confirmation"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input
+                                label="E-Mail*"
+                                type="email"
+                                placeholder="max.mustermann@gmx.at"
+                                v-model="reservation.eMail"
+                                required
+                                :disabled="confirmation"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-checkbox
+                                v-model="reservation.doBreakfast"
+                                :disabled="confirmation"
+                                >With breakfast?</ion-checkbox
+                            >
+                        </ion-item>
+                    </ion-list>
+                    <button-group>
+                        <ion-button
+                            type="button"
+                            fill="outline"
+                            class="outline"
+                            v-if="confirmation"
+                            @click="backToEdit"
+                            >Edit</ion-button
                         >
-                    </ion-item>
-                    <ion-button
-                        type="button"
-                        v-if="confirmation"
-                        @click="backToEdit"
-                        >Back to edit</ion-button
-                    >
-                    <ion-button type="submit">{{
-                        confirmation === true
-                            ? 'Make reservation'
-                            : 'Confirm reservation'
-                    }}</ion-button>
+                        <ion-button type="submit">{{
+                            confirmation ? 'Submit Reservation' : 'Reserve'
+                        }}</ion-button>
+                    </button-group>
                 </form>
             </ion-list>
         </ion-content>
     </ion-modal>
 </template>
 
-<style scoped></style>
+<style scoped>
+.cancel-button {
+    background-color: #290000;
+}
+
+@media only screen and (min-width: 600px) {
+    .button {
+        min-width: 10rem;
+    }
+
+    .outline {
+        margin-right: 1rem;
+    }
+}
+</style>

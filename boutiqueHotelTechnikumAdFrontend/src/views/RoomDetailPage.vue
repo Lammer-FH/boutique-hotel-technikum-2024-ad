@@ -13,9 +13,10 @@
         <ExtrasDisplay :extras="selectedRoom.extras"></ExtrasDisplay>
 
         <h2>Price:</h2>
-        <p>{{ selectedRoom.price }} € per person</p>
-
-        <ReservationFormModal></ReservationFormModal>
+        <div class="price">
+            <p>{{ selectedRoom.price }} € per person</p>
+            <ReservationFormModal></ReservationFormModal>
+        </div>
     </PageTemplate>
 </template>
 
@@ -47,5 +48,20 @@ export default {
 .image-display {
     height: 50%;
     width: 100%;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .price {
+        flex-direction: row;
+        > p {
+            margin-right: 1rem;
+            font-size: larger;
+        }
+    }
 }
 </style>

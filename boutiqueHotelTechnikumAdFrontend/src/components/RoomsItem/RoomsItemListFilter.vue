@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { useRoomStore } from '@/store/roomsStore';
-import { IonButton, IonInput, toastController } from '@ionic/vue';
+import { IonButton, IonInput } from '@ionic/vue';
 import HelperService from '../../service/HelperService';
 
 export default {
@@ -54,13 +54,26 @@ export default {
 };
 </script>
 <style scoped>
-form {
-    display: flex;
-    margin-left: 1rem;
+.button {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
-.date-picker {
-    width: 16rem;
-    margin-right: 1.5rem;
+@media only screen and (min-width: 600px) {
+    form {
+        display: flex;
+        margin-left: 1rem;
+    }
+
+    .date-picker {
+        width: 16rem;
+        margin-right: 1.5rem;
+    }
+
+    .button {
+        width: auto;
+        min-width: 10rem;
+        margin-bottom: 0;
+    }
 }
 </style>
