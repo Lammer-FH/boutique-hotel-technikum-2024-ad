@@ -58,7 +58,6 @@
 <script lang="ts">
 import { useRoomStore } from '@/store/roomsStore';
 import { useRoute } from 'vue-router';
-import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import PageTemplate from '@/components/PageTemplate.vue';
 import ExtrasDisplay from '@/components/ExtrasDisplay.vue';
 import ImageDisplay from '@/components/ImageDisplay.vue';
@@ -67,7 +66,6 @@ import MapDisplay from '@/components/MapDisplay.vue';
 export default {
     components: {
         PageTemplate,
-        RoomsItemList,
         ImageDisplay,
         ExtrasDisplay,
         MapDisplay,
@@ -81,10 +79,22 @@ export default {
     ionViewWillEnter() {
         this.roomStore
             .getReservationConfirmation(this.route.params['id'] as string)
-            .catch((error) => {});
+            .catch((_) => {});
     },
     methods: {},
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.image-display {
+    height: 50%;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .image-display {
+        height: 25rem;
+        width: auto;
+    }
+}
+</style>
