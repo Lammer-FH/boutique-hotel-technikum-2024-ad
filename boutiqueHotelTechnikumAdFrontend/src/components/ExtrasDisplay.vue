@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <ion-badge class="ion-margin" v-for="extra in extras" :key="extra">
-            <ion-icon size="large" :name="getIconName(extra.name)">{{
-                extra
-            }}</ion-icon>
-        </ion-badge>
-    </div>
+    <ion-badge class="badge" v-for="extra in extras" :key="extra">
+        <ion-icon size="large" :name="getIconName(extra.name)">{{
+            extra
+        }}</ion-icon>
+    </ion-badge>
 </template>
 
 <script lang="ts">
@@ -37,3 +35,15 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.badge {
+    margin-right: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .badge {
+        margin-top: 1.5rem;
+    }
+}
+</style>
