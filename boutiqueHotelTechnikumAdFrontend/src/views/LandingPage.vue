@@ -1,5 +1,5 @@
 <template>
-    <PageTemplate :use-back-button="true">
+    <PageTemplate>
         <template #menuTitle> Home </template>
         <template #title> Welcome </template>
         <h1>Welcome to Boutique Hotel Technikum</h1>

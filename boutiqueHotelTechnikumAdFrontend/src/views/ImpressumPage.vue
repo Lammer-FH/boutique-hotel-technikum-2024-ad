@@ -1,5 +1,5 @@
 <template>
-    <PageTemplate :use-back-button="true">
+    <PageTemplate>
         <template #menuTitle> Impressum </template>
         <template #title> Impressum </template>
         <h1>Impressum</h1>

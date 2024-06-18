@@ -1,7 +1,7 @@
 <template>
     <PageTemplate :use-back-button="true">
-        <template #menuTitle> Räume </template>
-        <template #title> Räume </template>
+        <template #menuTitle> Rooms </template>
+        <template #title> Rooms </template>
         <RoomsItemListFilter
             @filterRoomItems="filterRooms"
         ></RoomsItemListFilter>
@@ -20,6 +20,7 @@ import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import { Room } from '@/model/room';
 import PageTemplate from '@/components/PageTemplate.vue';
 import RoomsItemListFilter from '@/components/RoomsItem/RoomsItemListFilter.vue';
+import HelperService from '../service/HelperService';
 
 export default {
     components: {
@@ -43,24 +44,19 @@ export default {
             this.roomStore
                 .getRooms(this.roomStore.filter.from, this.roomStore.filter.to)
                 .catch(() => {
-                    this.showError('bottom');
+                    HelperService.showToast(
+                        'The rooms could not be loaded!',
+                        true,
+                        'top'
+                    );
                 })
                 .finally(() => {
                     loadingIndicator.dismiss();
                 });
         },
-        async showError(position: 'top' | 'middle' | 'bottom') {
-            const toast = await toastController.create({
-                message: 'Die Räume konnten nicht geladen werden!',
-                duration: 3000,
-                position: position,
-                color: 'danger',
-            });
-            await toast.present();
-        },
         async showLoading() {
             const loading = await loadingController.create({
-                message: 'Räume werden geladen...',
+                message: 'Loading rooms...',
             });
 
             await loading.present();

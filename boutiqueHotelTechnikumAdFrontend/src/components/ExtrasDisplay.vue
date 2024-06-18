@@ -1,18 +1,21 @@
 <template>
     <div>
-        <ion-badge class="ion-margin" v-for="extra in extras" :key="extra">
-            <ion-icon size="large" :name="getIconName(extra.name)">{{
-                extra
-            }}</ion-icon>
+        <ion-badge class="ion-margin" v-for="extra in extras" :key="extra.name">
+            <ion-icon
+                size="large"
+                :name="getIconName(extra.name)"
+                :title="extra.name"
+                >{{ extra }}</ion-icon
+            >
         </ion-badge>
     </div>
 </template>
 
 <script lang="ts">
-import { IonIcon } from '@ionic/vue';
+import { IonBadge, IonIcon } from '@ionic/vue';
 
 export default {
-    components: { IonIcon },
+    components: { IonIcon, IonBadge },
     props: {
         extras: {
             type: Array,
