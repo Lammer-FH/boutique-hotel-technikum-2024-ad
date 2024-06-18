@@ -37,6 +37,7 @@ export default defineComponent({
     data() {
         return {
             reservation: new Reservation(),
+            emailConfirmation: '',
             confirmation: false,
             roomStore: useRoomStore(),
             isModalOpen: false,
@@ -76,7 +77,15 @@ export default defineComponent({
                         }
                     });
             }
-            this.confirmation = true;
+            if (this.reservation.eMail === this.emailConfirmation) {
+                this.confirmation = true;
+            } else {
+                HelperService.showToast(
+                    'The emails need to be same!',
+                    true,
+                    'bottom'
+                );
+            }
         },
         backToEdit() {
             this.confirmation = false;
@@ -156,6 +165,15 @@ export default defineComponent({
                                 v-model="reservation.eMail"
                                 required
                                 :disabled="confirmation"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item v-if="!confirmation">
+                            <ion-input
+                                label="E-Mail confirmation*"
+                                type="email"
+                                placeholder="max.mustermann@gmx.at"
+                                v-model="emailConfirmation"
+                                required
                             ></ion-input>
                         </ion-item>
                         <ion-item>
