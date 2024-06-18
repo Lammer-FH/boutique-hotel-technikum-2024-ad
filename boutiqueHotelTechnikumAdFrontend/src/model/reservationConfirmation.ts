@@ -1,7 +1,7 @@
 export class ReservationConfirmation {
     constructor(
-        public from: Date = new Date(),
-        public to: Date = new Date(),
+        public from: string = '',
+        public to: string = '',
         public roomTitle: string = '',
         public roomDescription: string = '',
         public imagePath: string = '',
@@ -12,12 +12,4 @@ export class ReservationConfirmation {
         public eMail: string = '',
         public doBreakfast: boolean = false
     ) {}
-
-    public get fromFormated() {
-        return this.from.toISOString().split('T')[0];
-    }
-
-    public get toFormated() {
-        return this.to.toISOString().split('T')[0];
-    }
 }

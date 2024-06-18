@@ -6,8 +6,9 @@
         </template>
         <section>
             <h1>
-                Reservation from {{ roomStore.reservation.fromFormated }} to
-                {{ roomStore.reservation.toFormated }}
+                Reservation from
+                {{ roomStore.reservation.from.split('T')[0] }} to
+                {{ roomStore.reservation.to.split('T')[0] }}
             </h1>
             <p>E-Mail: {{ roomStore.reservation.eMail }}</p>
             <p>Firstname: {{ roomStore.reservation.firstName }}</p>
