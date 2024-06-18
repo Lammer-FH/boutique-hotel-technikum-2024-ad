@@ -4,8 +4,6 @@ import { Room } from '@/model/room';
 import { ReservationResult } from '@/model/reservationResult';
 import { Reservation } from '@/model/reservation';
 
-const apiUrl = 'http://localhost:8081/api';
-
 export const useRoomStore = defineStore('room', {
     state: () => {
         return {
@@ -16,10 +14,10 @@ export const useRoomStore = defineStore('room', {
     },
     actions: {
         async getRooms(from: Date = new Date(), to: Date = new Date()) {
-            if (apiUrl !== undefined) {
+            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
                 return axios
                     .get<Room[]>(
-                        apiUrl +
+                        import.meta.env.VITE_BACKEND_API_URL +
                             '/rooms?from=' +
                             from.toISOString().split('T')[0] +
                             '&to=' +
@@ -43,10 +41,12 @@ export const useRoomStore = defineStore('room', {
             this.filter.from = new Date(from);
         },
         async reserveRoom(room: Room, reservation: Reservation) {
-            if (apiUrl !== undefined) {
+            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
                 return axios
                     .post<ReservationResult>(
-                        apiUrl + '/reservation/' + room.id,
+                        import.meta.env.VITE_BACKEND_API_URL +
+                            '/reservation/' +
+                            room.id,
                         reservation,
                         {
                             headers: {
