@@ -5,7 +5,7 @@ import { ReservationResult } from '@/model/reservationResult';
 import { Reservation } from '@/model/reservation';
 import { ReservationConfirmation } from '@/model/reservationConfirmation';
 
-const apiUrl = import.meta.env.VITE_APP_API_URL;
+const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
 export const useRoomStore = defineStore('room', {
     state: () => {
