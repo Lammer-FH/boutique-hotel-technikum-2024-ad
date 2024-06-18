@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { useRoomStore } from '@/store/roomsStore';
-import { IonButton, IonInput, toastController } from '@ionic/vue';
+import { IonButton, IonInput } from '@ionic/vue';
 import HelperService from '../../service/HelperService';
 
 export default {
