@@ -16,6 +16,8 @@ import {
 } from '@ionic/vue';
 import { useRoomStore } from '@/store/roomsStore';
 import HelperService from '@/service/HelperService';
+import { useRouter } from 'vue-router';
+import { routeUrls } from '@/navigation.config';
 import ButtonGroup from '@/components/ButtonGroup.vue';
 
 export default defineComponent({
@@ -41,6 +43,7 @@ export default defineComponent({
             confirmation: false,
             roomStore: useRoomStore(),
             isModalOpen: false,
+            router: useRouter(),
         };
     },
     methods: {
@@ -49,12 +52,20 @@ export default defineComponent({
                 this.roomStore
                     .reserveRoom(this.roomStore.selectedRoom, this.reservation)
                     .then(() => {
-                        HelperService.showToast(
-                            'Raum reserviert',
-                            false,
-                            'top'
-                        );
-                        this.dismiss();
+                        if (this.reservation.id !== null) {
+                            HelperService.showToast(
+                                'Raum reserviert',
+                                false,
+                                'top'
+                            );
+                            this.dismiss();
+                            this.router.push(
+                                routeUrls.reservationConfirmation.replace(
+                                    ':id',
+                                    this.reservation.id.toString()
+                                )
+                            );
+                        }
                     })
                     .catch((error) => {
                         console.log(error);
@@ -103,7 +114,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <ion-button @click="openModal" expand="block">Reserve</ion-button>
+    <ion-button @click="openModal" expand="block">Reservation</ion-button>
     <ion-modal :is-open="isModalOpen" @did-dismiss="dismiss">
         <ion-header>
             <ion-toolbar>
@@ -112,7 +123,7 @@ export default defineComponent({
                         >Cancel</ion-button
                     >
                 </ion-buttons>
-                <ion-title>Reserve room</ion-title>
+                <ion-title>Room reservation</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
@@ -123,7 +134,7 @@ export default defineComponent({
                             <ion-input
                                 label="Book from"
                                 type="date"
-                                :value="reservation.fromFormated()"
+                                :value="reservation.fromFormated"
                                 required
                                 :disabled="true"
                             ></ion-input>
@@ -132,7 +143,7 @@ export default defineComponent({
                             <ion-input
                                 label="Book to"
                                 type="date"
-                                :value="reservation.toFormated()"
+                                :value="reservation.toFormated"
                                 required
                                 :disabled="true"
                             ></ion-input>

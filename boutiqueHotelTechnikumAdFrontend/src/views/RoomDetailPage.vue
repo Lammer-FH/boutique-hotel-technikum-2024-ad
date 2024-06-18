@@ -63,5 +63,9 @@ export default {
             font-size: larger;
         }
     }
+
+    .image-display {
+        height: 24rem;
+    }
 }
 </style>

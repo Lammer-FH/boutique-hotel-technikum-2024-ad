@@ -4,4 +4,5 @@ export const routeUrls = {
     impressum: '/impressum',
     rooms: '/rooms',
     roomDetails: '/rooms/:id',
+    reservationConfirmation: '/reservation/:id',
 };

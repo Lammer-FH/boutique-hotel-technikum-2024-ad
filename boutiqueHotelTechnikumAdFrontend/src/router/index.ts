@@ -23,6 +23,10 @@ const routes: Array<RouteRecordRaw> = [
         path: routeUrls.roomDetails,
         component: () => import('../views/RoomDetailPage.vue'),
     },
+    {
+        path: routeUrls.reservationConfirmation,
+        component: () => import('../views/ReservationConfirmationPage.vue'),
+    },
 ];
 
 const router = createRouter({

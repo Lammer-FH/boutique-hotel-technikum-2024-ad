@@ -73,7 +73,6 @@ export default {
     .button {
         width: auto;
         min-width: 10rem;
-        margin-bottom: 0;
     }
 }
 </style>

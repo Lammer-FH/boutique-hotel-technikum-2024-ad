@@ -3,21 +3,27 @@ import axios from 'axios';
 import { Room } from '@/model/room';
 import { ReservationResult } from '@/model/reservationResult';
 import { Reservation } from '@/model/reservation';
+import { ReservationConfirmation } from '@/model/reservationConfirmation';
+
+const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
 export const useRoomStore = defineStore('room', {
     state: () => {
+        const reservation: ReservationConfirmation =
+            new ReservationConfirmation();
         return {
             rooms: [] as Room[],
             selectedRoom: Room.prototype,
+            reservation: reservation,
             filter: { to: new Date(), from: new Date() },
         };
     },
     actions: {
         async getRooms(from: Date = new Date(), to: Date = new Date()) {
-            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
+            if (apiUrl !== undefined) {
                 return axios
                     .get<Room[]>(
-                        import.meta.env.VITE_BACKEND_API_URL +
+                        apiUrl +
                             '/rooms?from=' +
                             from.toISOString().split('T')[0] +
                             '&to=' +
@@ -41,12 +47,10 @@ export const useRoomStore = defineStore('room', {
             this.filter.from = new Date(from);
         },
         async reserveRoom(room: Room, reservation: Reservation) {
-            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
+            if (apiUrl !== undefined) {
                 return axios
                     .post<ReservationResult>(
-                        import.meta.env.VITE_BACKEND_API_URL +
-                            '/reservation/' +
-                            room.id,
+                        apiUrl + '/reservation/' + room.id,
                         reservation,
                         {
                             headers: {
@@ -56,6 +60,22 @@ export const useRoomStore = defineStore('room', {
                     )
                     .then((response) => {
                         reservation.id = response.data.reservationId;
+                    });
+            }
+        },
+        async getReservationConfirmation(reservationId: string) {
+            if (apiUrl !== undefined) {
+                return axios
+                    .get<ReservationConfirmation>(
+                        apiUrl + '/reservation/confirmation/' + reservationId,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    )
+                    .then((response) => {
+                        this.reservation = response.data;
                     });
             }
         },
