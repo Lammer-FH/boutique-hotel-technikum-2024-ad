@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { useRoomStore } from '@/store/roomsStore';
-import { loadingController, toastController } from '@ionic/vue';
+import { loadingController } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import { Room } from '@/model/room';
