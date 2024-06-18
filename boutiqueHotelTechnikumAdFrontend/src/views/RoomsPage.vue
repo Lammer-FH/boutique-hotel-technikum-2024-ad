@@ -1,6 +1,6 @@
 <template>
     <PageTemplate :use-back-button="true">
-        <template #menuTitle> Rooms </template>
+        <template #menuTitle> Available Rooms </template>
         <template #title> Rooms </template>
         <RoomsItemListFilter
             @filterRoomItems="filterRooms"

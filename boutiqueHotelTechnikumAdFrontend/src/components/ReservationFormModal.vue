@@ -16,6 +16,7 @@ import {
 } from '@ionic/vue';
 import { useRoomStore } from '@/store/roomsStore';
 import HelperService from '@/service/HelperService';
+import ButtonGroup from '@/components/ButtonGroup.vue';
 
 export default defineComponent({
     name: 'ReservationFormModal',
@@ -31,6 +32,7 @@ export default defineComponent({
         IonButton,
         IonModal,
         IonTitle,
+        ButtonGroup,
     },
     data() {
         return {
@@ -164,9 +166,11 @@ export default defineComponent({
                             >
                         </ion-item>
                     </ion-list>
-                    <div class="button-group">
+                    <button-group>
                         <ion-button
                             type="button"
+                            fill="outline"
+                            class="outline"
                             v-if="confirmation"
                             @click="backToEdit"
                             >Edit</ion-button
@@ -174,7 +178,7 @@ export default defineComponent({
                         <ion-button type="submit">{{
                             confirmation ? 'Submit Reservation' : 'Reserve'
                         }}</ion-button>
-                    </div>
+                    </button-group>
                 </form>
             </ion-list>
         </ion-content>
@@ -182,29 +186,17 @@ export default defineComponent({
 </template>
 
 <style scoped>
-.button-group {
-    display: flex;
-    width: auto;
-    flex-direction: column;
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
-
 .cancel-button {
     background-color: #290000;
 }
 
 @media only screen and (min-width: 600px) {
-    .button-group {
-        flex-direction: row;
-        margin-right: 0;
-        :first-child {
-            margin-right: 1rem;
-        }
-    }
-
     .button {
         min-width: 10rem;
+    }
+
+    .outline {
+        margin-right: 1rem;
     }
 }
 </style>
