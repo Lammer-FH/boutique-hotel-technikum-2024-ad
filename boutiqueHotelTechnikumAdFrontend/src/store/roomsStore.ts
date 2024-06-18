@@ -5,14 +5,16 @@ import { ReservationResult } from '@/model/reservationResult';
 import { Reservation } from '@/model/reservation';
 import { ReservationConfirmation } from '@/model/reservationConfirmation';
 
-const apiUrl = 'http://localhost:8081/api';
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 export const useRoomStore = defineStore('room', {
     state: () => {
+        const reservation: ReservationConfirmation =
+            new ReservationConfirmation();
         return {
             rooms: [] as Room[],
             selectedRoom: Room.prototype,
-            reservation: ReservationConfirmation.prototype,
+            reservation: reservation,
             filter: { to: new Date(), from: new Date() },
         };
     },

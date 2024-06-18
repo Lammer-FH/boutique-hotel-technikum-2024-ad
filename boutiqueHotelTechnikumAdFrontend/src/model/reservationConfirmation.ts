@@ -12,4 +12,12 @@ export class ReservationConfirmation {
         public eMail: string = '',
         public doBreakfast: boolean = false
     ) {}
+
+    public get fromFormated() {
+        return this.from.toISOString().split('T')[0];
+    }
+
+    public get toFormated() {
+        return this.to.toISOString().split('T')[0];
+    }
 }

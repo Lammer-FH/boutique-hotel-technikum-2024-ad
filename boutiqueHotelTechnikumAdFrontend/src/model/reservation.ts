@@ -9,11 +9,11 @@ export class Reservation {
         public to: Date = new Date()
     ) {}
 
-    public fromFormated(): string {
+    public get fromFormated() {
         return this.from.toISOString().split('T')[0];
     }
 
-    public toFormated(): string {
+    public get toFormated() {
         return this.to.toISOString().split('T')[0];
     }
 }
