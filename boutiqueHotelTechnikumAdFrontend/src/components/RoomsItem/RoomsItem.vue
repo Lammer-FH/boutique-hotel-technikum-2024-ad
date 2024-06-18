@@ -39,14 +39,7 @@
 
 <script lang="ts">
 import { Room } from '@/model/room';
-import {
-    IonButton,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
-    IonText,
-} from '@ionic/vue';
+import { IonButton, IonCard } from '@ionic/vue';
 import ImageDisplay from '../ImageDisplay.vue';
 import ExtrasDisplay from '../ExtrasDisplay.vue';
 import { PropType } from 'vue';
@@ -54,10 +47,6 @@ import { PropType } from 'vue';
 export default {
     components: {
         IonCard,
-        IonCardTitle,
-        IonCardHeader,
-        IonCardContent,
-        IonText,
         IonButton,
         ImageDisplay,
         ExtrasDisplay,
