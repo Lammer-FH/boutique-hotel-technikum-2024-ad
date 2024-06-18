@@ -13,8 +13,7 @@ export const useRoomStore = defineStore('room', {
         };
     },
     actions: {
-        async getRooms(from: Date = new Date(),
-                       to: Date = new Date()) {
+        async getRooms(from: Date = new Date(), to: Date = new Date()) {
             if (apiUrl !== undefined) {
                 return axios
                     .get<Room[]>(

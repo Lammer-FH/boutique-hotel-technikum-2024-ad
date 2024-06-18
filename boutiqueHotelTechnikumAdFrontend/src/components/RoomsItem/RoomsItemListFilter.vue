@@ -45,13 +45,26 @@ export default {
 };
 </script>
 <style scoped>
-form {
-    display: flex;
-    margin-left: 1rem;
+.button {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
-.date-picker {
-    width: 16rem;
-    margin-right: 1.5rem;
+@media only screen and (min-width: 600px) {
+    form {
+        display: flex;
+        margin-left: 1rem;
+    }
+
+    .date-picker {
+        width: 16rem;
+        margin-right: 1.5rem;
+    }
+
+    .button {
+        width: auto;
+        min-width: 10rem;
+        margin-bottom: 0;
+    }
 }
 </style>
