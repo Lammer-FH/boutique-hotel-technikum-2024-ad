@@ -1,5 +1,5 @@
 <template>
-    <PageTemplate :use-back-button="true">
+    <PageTemplate>
         <template #menuTitle> Available Rooms </template>
         <template #title> Rooms </template>
         <RoomsItemListFilter
