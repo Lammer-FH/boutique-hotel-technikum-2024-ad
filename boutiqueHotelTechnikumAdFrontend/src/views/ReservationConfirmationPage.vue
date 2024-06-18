@@ -45,6 +45,9 @@
             <p>Autobus: Linie 37A - Station Höchstädtplatz</p>
         </section>
         <section>
+            <MapDisplay></MapDisplay>
+        </section>
+        <section>
             <h2>Contact</h2>
             <p>Tel: +43 XXXX XXXX</p>
             <p>Email: hotel-email@example.at</p>
@@ -59,6 +62,7 @@ import RoomsItemList from '../components/RoomsItem/RoomsItemList.vue';
 import PageTemplate from '@/components/PageTemplate.vue';
 import ExtrasDisplay from '@/components/ExtrasDisplay.vue';
 import ImageDisplay from '@/components/ImageDisplay.vue';
+import MapDisplay from '@/components/MapDisplay.vue';
 
 export default {
     components: {
@@ -66,6 +70,7 @@ export default {
         RoomsItemList,
         ImageDisplay,
         ExtrasDisplay,
+        MapDisplay,
     },
     data: () => {
         return {
