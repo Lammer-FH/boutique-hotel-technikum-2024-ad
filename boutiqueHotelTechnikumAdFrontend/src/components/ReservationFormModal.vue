@@ -13,10 +13,10 @@ import {
     IonModal,
     IonToolbar,
     IonTitle,
-    modalController,
     toastController,
 } from '@ionic/vue';
 import { useRoomStore } from '@/store/roomsStore';
+import HelperService from '@/service/HelperService';
 
 export default defineComponent({
     name: 'ReservationFormModal',
@@ -47,7 +47,11 @@ export default defineComponent({
                 this.roomStore
                     .reserveRoom(this.roomStore.selectedRoom, this.reservation)
                     .then(() => {
-                        this.showToast('Raum reserviert', false, 'top');
+                        HelperService.showToast(
+                            'Raum reserviert',
+                            false,
+                            'top'
+                        );
                         this.dismiss();
                     })
                     .catch((error) => {
@@ -57,13 +61,13 @@ export default defineComponent({
                             error.response.data !== undefined &&
                             error.response.status === 422
                         ) {
-                            this.showToast(
+                            HelperService.showToast(
                                 'Raum ist nicht verfügbar in dem spezifizerten Zeitraum',
                                 true,
                                 'top'
                             );
                         } else {
-                            this.showToast(
+                            HelperService.showToast(
                                 'Raum reservierung fehlgeschlagen!',
                                 true,
                                 'top'
@@ -78,19 +82,6 @@ export default defineComponent({
         },
         dismiss() {
             this.isModalOpen = false;
-        },
-        async showToast(
-            message: string,
-            error = false,
-            position: 'top' | 'middle' | 'bottom'
-        ) {
-            const toast = await toastController.create({
-                message: message,
-                duration: 3000,
-                position: position,
-                color: error ? 'danger' : 'success',
-            });
-            await toast.present();
         },
         openModal() {
             this.reservation.from = this.roomStore.filter.from;
