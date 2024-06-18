@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import { Room } from '@/model/room';
-
-const apiUrl = import.meta.env.VITE_APP_API_URL;
+import { ReservationResult } from '@/model/reservationResult';
+import { Reservation } from '@/model/reservation';
 
 export const useRoomStore = defineStore('room', {
     state: () => {
@@ -14,10 +14,10 @@ export const useRoomStore = defineStore('room', {
     },
     actions: {
         async getRooms(from: Date = new Date(), to: Date = new Date()) {
-            if (apiUrl !== undefined) {
+            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
                 return axios
                     .get<Room[]>(
-                        apiUrl +
+                        import.meta.env.VITE_BACKEND_API_URL +
                             '/rooms?from=' +
                             from.toISOString().split('T')[0] +
                             '&to=' +
@@ -39,6 +39,25 @@ export const useRoomStore = defineStore('room', {
         setFilter(from: string, to: string) {
             this.filter.to = new Date(to);
             this.filter.from = new Date(from);
+        },
+        async reserveRoom(room: Room, reservation: Reservation) {
+            if (import.meta.env.VITE_BACKEND_API_URL !== undefined) {
+                return axios
+                    .post<ReservationResult>(
+                        import.meta.env.VITE_BACKEND_API_URL +
+                            '/reservation/' +
+                            room.id,
+                        reservation,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    )
+                    .then((response) => {
+                        reservation.id = response.data.reservationId;
+                    });
+            }
         },
     },
 });

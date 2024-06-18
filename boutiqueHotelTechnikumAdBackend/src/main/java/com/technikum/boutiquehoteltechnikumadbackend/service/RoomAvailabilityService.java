@@ -11,10 +11,12 @@ public class RoomAvailabilityService {
 
     public boolean isAvailAble(Room room, LocalDate from, LocalDate to) {
         for(Reservation reservation : room.getReservations()) {
+            if(reservation.getFrom().isEqual(from.atStartOfDay()) && reservation.getTo().isEqual(to.atStartOfDay())) {
+                return false;
+            }
             if(reservation.getFrom().isBefore(to.atStartOfDay()) &&
                     from.atStartOfDay().isBefore(reservation.getTo())) {
                 return false;
-
             }
         }
         return true;

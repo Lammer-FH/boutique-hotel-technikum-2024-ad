@@ -71,4 +71,8 @@ public class RoomService {
         }
         return extraDtos;
     }
+
+    public Optional<Room> findRoomById(Integer roomId) {
+        return roomRepository.findById(roomId);
+    }
 }

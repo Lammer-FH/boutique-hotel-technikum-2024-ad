@@ -23,6 +23,7 @@
 <script lang="ts">
 import { useRoomStore } from '@/store/roomsStore';
 import { IonButton, IonInput } from '@ionic/vue';
+import HelperService from '../../service/HelperService';
 
 export default {
     components: { IonInput, IonButton },
@@ -35,8 +36,16 @@ export default {
     },
     methods: {
         filter() {
-            this.roomStorage.setFilter(this.from, this.to);
-            this.$emit('filterRoomItems');
+            if (this.to >= this.from) {
+                this.roomStorage.setFilter(this.from, this.to);
+                this.$emit('filterRoomItems');
+            } else {
+                HelperService.showToast(
+                    "'Book To' is not allowed to be before 'Book from'!",
+                    true,
+                    'top'
+                );
+            }
         },
     },
     emit: {
