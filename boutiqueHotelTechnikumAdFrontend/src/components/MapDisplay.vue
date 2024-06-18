@@ -29,4 +29,10 @@ export default defineComponent({
         height: 37.5rem;
     }
 }
+
+@media print {
+    .map {
+        display: none;
+    }
+}
 </style>

@@ -24,9 +24,10 @@
             ></ImageDisplay>
             <h3>Beschreibung:</h3>
             <p>{{ roomStore.reservation.roomDescription }}</p>
-            <h3>Extras:</h3>
+            <h3 class="extra">Extras:</h3>
             <ExtrasDisplay
                 :extras="roomStore.reservation.extras"
+                class="extra"
             ></ExtrasDisplay>
             <h3>Preis:</h3>
             <p>{{ roomStore.reservation.roomPrice }} € per person</p>
@@ -95,6 +96,15 @@ export default {
     .image-display {
         height: 25rem;
         width: auto;
+    }
+}
+
+@media print {
+    .image-display {
+        display: none;
+    }
+    .extra {
+        display: none;
     }
 }
 </style>

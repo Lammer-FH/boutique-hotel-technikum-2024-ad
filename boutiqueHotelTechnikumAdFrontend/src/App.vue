@@ -220,4 +220,44 @@ ion-note {
 ion-item.selected {
     --color: var(--ion-color-primary);
 }
+
+@media print {
+    ion-header,
+    ion-backdrop,
+    .tabbar,
+    ion-footer,
+    ion-content::part(background) {
+        display: none !important;
+    }
+    ion-nav {
+        contain: none;
+        overflow: visible;
+    }
+    ion-split-pane {
+        display: block;
+    }
+    .scroll-content,
+    ion-modal,
+    ion-modal .modal-wrapper,
+    ion-modal .ion-page,
+    ion-modal .ion-page > ion-content,
+    .ion-page,
+    .ion-page > ion-content,
+    ion-split-pane,
+    ion-tab,
+    ion-tabs,
+    ion-router-outlet,
+    .app-root,
+    ion-content::part(scroll),
+    body {
+        contain: none;
+        position: initial;
+        height: auto;
+        overflow: visible;
+    }
+    .fixed-content,
+    .scroll-content {
+        margin-top: 0 !important;
+    }
+}
 </style>
