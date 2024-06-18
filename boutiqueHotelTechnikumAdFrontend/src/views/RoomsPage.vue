@@ -1,7 +1,7 @@
 <template>
     <PageTemplate :use-back-button="true">
-        <template #menuTitle> Räume </template>
-        <template #title> Räume </template>
+        <template #menuTitle> Rooms </template>
+        <template #title> Rooms </template>
         <RoomsItemListFilter
             @filterRoomItems="filterRooms"
         ></RoomsItemListFilter>
@@ -45,7 +45,7 @@ export default {
                 .getRooms(this.roomStore.filter.from, this.roomStore.filter.to)
                 .catch(() => {
                     HelperService.showToast(
-                        'Die Räume konnten nicht geladen werden!',
+                        'The rooms could not be loaded!',
                         true,
                         'top'
                     );
@@ -56,7 +56,7 @@ export default {
         },
         async showLoading() {
             const loading = await loadingController.create({
-                message: 'Räume werden geladen...',
+                message: 'Loading rooms...',
             });
 
             await loading.present();

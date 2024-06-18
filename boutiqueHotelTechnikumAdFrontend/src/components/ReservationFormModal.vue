@@ -93,14 +93,14 @@ export default defineComponent({
 </script>
 
 <template>
-    <ion-button @click="openModal" expand="block">Reservieren</ion-button>
+    <ion-button @click="openModal" expand="block">Reserve</ion-button>
     <ion-modal :is-open="isModalOpen" @did-dismiss="dismiss">
         <ion-header>
             <ion-toolbar>
                 <ion-buttons slot="start">
-                    <ion-button @click="dismiss()">Abbrechen</ion-button>
+                    <ion-button @click="dismiss()">Cancel</ion-button>
                 </ion-buttons>
-                <ion-title>Raum reservieren</ion-title>
+                <ion-title>Reserve room</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
@@ -108,7 +108,7 @@ export default defineComponent({
                 <form @submit.prevent="submitReservation">
                     <ion-item>
                         <ion-input
-                            label="Buchen von"
+                            label="Book from"
                             type="date"
                             :value="reservation.fromFormated()"
                             required
@@ -117,7 +117,7 @@ export default defineComponent({
                     </ion-item>
                     <ion-item>
                         <ion-input
-                            label="Buchen bis"
+                            label="Book to"
                             type="date"
                             :value="reservation.toFormated()"
                             required
@@ -126,7 +126,7 @@ export default defineComponent({
                     </ion-item>
                     <ion-item>
                         <ion-input
-                            label="Vorname*"
+                            label="Firstname*"
                             type="text"
                             v-model="reservation.firstName"
                             required
@@ -135,7 +135,7 @@ export default defineComponent({
                     </ion-item>
                     <ion-item>
                         <ion-input
-                            label="Nachname*"
+                            label="Lastname*"
                             type="text"
                             v-model="reservation.lastName"
                             required
@@ -155,7 +155,7 @@ export default defineComponent({
                         <ion-checkbox
                             v-model="reservation.doBreakfast"
                             :disabled="confirmation"
-                            >Frühstück Ja/Nein</ion-checkbox
+                            >Breakfast Yes/No</ion-checkbox
                         >
                     </ion-item>
                     <ion-button
